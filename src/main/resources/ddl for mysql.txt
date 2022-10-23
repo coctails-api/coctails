@@ -15,9 +15,9 @@ CREATE SCHEMA IF NOT EXISTS `massage` DEFAULT CHARACTER SET utf8 ;
 USE `massage` ;
 
 -- -----------------------------------------------------
--- Table `massage`.`user`
+-- Table `massage`.`users`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `massage`.`user` (
+CREATE TABLE IF NOT EXISTS `massage`.`users` (
   `iduser` INT NOT NULL AUTO_INCREMENT,
   `login` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
@@ -124,6 +124,38 @@ CREATE TABLE IF NOT EXISTS `massage`.`statsglobal` (
   `sum` VARCHAR(45) NOT NULL,
   `date` DATE NOT NULL,
   PRIMARY KEY (`idstatsglobal`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `massage`.`roles`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `massage`.`roles` (
+  `idroles` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idroles`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `massage`.`users_roles`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `massage`.`users_roles` (
+  `user_iduser` INT NOT NULL,
+  `roles_idroles` INT NOT NULL,
+  PRIMARY KEY (`user_iduser`, `roles_idroles`),
+  INDEX `fk_user_has_roles_roles1_idx` (`roles_idroles` ASC) VISIBLE,
+  INDEX `fk_user_has_roles_user1_idx` (`user_iduser` ASC) VISIBLE,
+  CONSTRAINT `fk_user_has_roles_user1`
+    FOREIGN KEY (`user_iduser`)
+    REFERENCES `massage`.`users` (`iduser`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_user_has_roles_roles1`
+    FOREIGN KEY (`roles_idroles`)
+    REFERENCES `massage`.`roles` (`idroles`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
