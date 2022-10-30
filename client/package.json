@@ -1,5 +1,5 @@
 {
-  "name": "massage-angular",
+  "name": "client",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.2.6",
-    "@angular/cli": "~14.2.6",
+    "@angular/cli": "^14.2.7",
     "@angular/compiler-cli": "^14.2.0",
     "@types/jasmine": "~4.0.0",
     "jasmine-core": "~4.3.0",
