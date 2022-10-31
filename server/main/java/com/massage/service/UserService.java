@@ -1,2 +1,21 @@
-package com.massage.service;public class UserService {
+package com.massage.service;
+
+import com.massage.entity.Role;
+import com.massage.entity.User;
+import com.massage.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
+
+@Service
+@Transactional
+public class UserService {
+    @Autowired
+    private UserRepository userRepository;
+
+    public void addUser(User user){
+        user.setRole(new Role("USER"));
+        userRepository.save(user);
+    }
 }

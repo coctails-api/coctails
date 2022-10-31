@@ -1,6 +1,7 @@
 package com.massage.entity;
 
 import lombok.Getter;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,6 +11,7 @@ import java.util.*;
 
 @Entity
 @Getter
+@Setter
 @Table(name = "user")
 public class User {
     @Id
