@@ -12,9 +12,7 @@ import { UserService } from './service/user.service';
   styleUrls: ['app.component.css']
 })
 export class AppComponent implements OnInit {
-  title(title: any) {
-    throw new Error('Method not implemented.');
-  }
+  
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
@@ -40,6 +38,9 @@ export class AppComponent implements OnInit {
     public onOpenModal(mode: string): void {
       const container = document.getElementById('main-container')!;
       const button = document.createElement('button');
+
+      console.log("Is container null?" + container == null);
+        
       button.type = 'button';
       button.style.display = 'none';
       button.setAttribute('data-toggle', 'modal');
