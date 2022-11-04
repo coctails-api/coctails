@@ -10,24 +10,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
+@CrossOrigin
+@RequestMapping("/user")
 public class RegisterController {
     @Autowired
     private UserService userService;
     private Logger logger = LoggerFactory.getLogger(RegisterController.class);
 
     @PostMapping("/register")
-    public ResponseEntity<String> registerUser(@RequestBody UserDTO userDTO, ModelMapper modelMapper){
+    public void registerUser(@RequestBody UserDTO userDTO, ModelMapper modelMapper){
+        logger.info("xxx");
         User user = new User();
         modelMapper.map(userDTO, user);
         userService.addUser(user);
-        return new ResponseEntity<>("Success", HttpStatus.CREATED);
+        //return new ResponseEntity<>("Success", HttpStatus.CREATED);
     }
+    
 
     @GetMapping("/register")
     public void registerUser() {

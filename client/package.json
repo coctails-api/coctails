@@ -1,9 +1,10 @@
 {
+  " ": "ng serve --proxy-config proxy.conf.json",
   "name": "client",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -23,10 +24,12 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
+    "@angular-builders/custom-webpack": "8.4.1",
     "@angular-devkit/build-angular": "^14.2.6",
     "@angular/cli": "^14.2.7",
     "@angular/compiler-cli": "^14.2.0",
     "@types/jasmine": "~4.0.0",
+    "https-proxy-agent": "^5.0.1",
     "jasmine-core": "~4.3.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
