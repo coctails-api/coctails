@@ -14,8 +14,13 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+    @Transactional
+    public void save(User user){
+        userRepository.save(user);
+    }
+
     public void addUser(User user){
         user.setRole(new Role("USER"));
-        userRepository.save(user);
+        save(user);
     }
 }

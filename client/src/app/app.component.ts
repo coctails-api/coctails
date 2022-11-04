@@ -26,9 +26,11 @@ export class AppComponent implements OnInit {
       this.userService.registerUser(addForm.value).subscribe(
         (response: User) => {
           console.log(response);
+          console.log("jest ok");
           addForm.reset();
         },
         (error: HttpErrorResponse) => {
+          console.error("nie jest ok");
           alert(error.message);
           addForm.reset();
         }
