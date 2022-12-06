@@ -17,11 +17,14 @@
             <li class="nav-item active">
                <a class="nav-link" (click)="onOpenModal('add')">Register <span class="sr-only">(current)</span></a>
             </li>
+            <li class="nav-item active">
+               <a class="nav-link" (click)="onOpenModal('login')">Sign in <span class="sr-only">(current)</span></a>
+            </li>
          </ul>
       </div>
    </nav>
    
-   <div class="container" id="main-container">
+<div class="container" id="main-container">
    <div class="modal fade" id="addEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -50,14 +53,41 @@
                  <input type="text" ngModel name="phone" class="form-control" id="phone" placeholder="Phone" required>
               </div>
               <div class="modal-footer">
-                 <button type="button" id="add-employee-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                 <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
+                 <!-- <button type="button" id="add-employee-form" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                 <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">Register</button>
               </div>
               </form>
            </div>
         </div>
       </div>
    </div>
-   
+   <div class="modal fade" id="signIn" tabindex="-1" role="dialog" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+           <div class="modal-header">
+              <h5 class="modal-title" id="addEmployeeModalLabel">Sign in</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+           </div>
+           <div class="modal-body">
+              <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+              <div class="form-group">
+                 <label for="name">Email</label>
+                 <input type="text" ngModel name="login" class="form-control" id="loginSign" placeholder="Login" required>
+              </div>
+              <div class="form-group">
+                 <label for="email">Password</label>
+                 <input type="password" ngModel name="email" class="form-control" id="emailSign" placeholder="Email" required>
+              </div>
+              <div class="modal-footer">
+                 <!-- <button type="button" id="add-employee-form" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                 <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">Sign in</button>
+              </div>
+              </form>
+           </div>
+        </div>
+      </div>
    </div>
+</div>
 </body>
