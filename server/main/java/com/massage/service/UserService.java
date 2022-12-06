@@ -26,6 +26,11 @@ public class UserService {
     }
 
     public void addUser(User user){
+        user.setRole(new Role("USER"));
+        save(user);
+    }
+
+    public void addUser(User user){
         user.setRole(roleRepository.getById( 1));
         logger.info(user.getRole().getName());
         save(user);

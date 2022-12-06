@@ -15,10 +15,13 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @Controller
+@CrossOrigin
+@RequestMapping("/user")
 public class RegisterController {
     @Autowired
     private UserService userService;
     private Logger logger = LoggerFactory.getLogger(RegisterController.class);
+
 
     @PostMapping("user/register")
     public ResponseEntity registerUser(@RequestBody User user, ModelMapper modelMapper){
@@ -35,7 +38,17 @@ public class RegisterController {
         modelMapper.map(user, userx);
         userService.addUser(userx);
         return ResponseEntity.ok("sda");
-    }
+
+    //@PostMapping("/register")
+    //public void registerUser(@RequestBody UserDTO userDTO, ModelMapper modelMapper){
+    //    logger.info("xxx");
+    //    User user = new User();
+    //    modelMapper.map(userDTO, user);
+    //    userService.addUser(user);
+    //    //return new ResponseEntity<>("Success", HttpStatus.CREATED);
+//
+  //  }
+    
 
 
     @GetMapping("/register")

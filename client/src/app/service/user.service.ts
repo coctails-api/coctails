@@ -12,6 +12,7 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
+
   public registerUser(user: User): Observable<User>{
     var reqHeader = new HttpHeaders({
       'Access-Control-Allow-Origin' : '*',
@@ -24,5 +25,9 @@ export class UserService {
 
   public loginUser(user: User) {
     return this.http.post(`${this.apiServerUrl}/user/login`, JSON.stringify({user}));
+
+  //public registerUser(user: User) {
+    //return this.http.post<User>(`${this.apiServerUrl}/user/register`,JSON.stringify({user}));
+
   }
 }
