@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @Controller
-@CrossOrigin
 @RequestMapping("/user")
 public class RegisterController {
     @Autowired
@@ -23,14 +22,14 @@ public class RegisterController {
     private Logger logger = LoggerFactory.getLogger(RegisterController.class);
 
 
-    @PostMapping("user/register")
-    public ResponseEntity registerUser(@RequestBody User user, ModelMapper modelMapper){
+    @PostMapping("/register")
+    public ResponseEntity registerUser(@RequestBody User user, ModelMapper modelMapper) {
         logger.info("Register user");
         logger.info(user.getLogin());
         logger.info(user.getEmail());
         logger.info(user.getPassword());
         logger.info(user.getPhone());
-        if(user.getEmail() == null){
+        if (user.getEmail() == null) {
             logger.info("null");
             return new ResponseEntity("xca", HttpStatus.BAD_REQUEST);
         }
@@ -39,20 +38,20 @@ public class RegisterController {
         userService.addUser(userx);
         return ResponseEntity.ok("sda");
 
-    //@PostMapping("/register")
-    //public void registerUser(@RequestBody UserDTO userDTO, ModelMapper modelMapper){
-    //    logger.info("xxx");
-    //    User user = new User();
-    //    modelMapper.map(userDTO, user);
-    //    userService.addUser(user);
-    //    //return new ResponseEntity<>("Success", HttpStatus.CREATED);
+        //@PostMapping("/register")
+        //public void registerUser(@RequestBody UserDTO userDTO, ModelMapper modelMapper){
+        //    logger.info("xxx");
+        //    User user = new User();
+        //    modelMapper.map(userDTO, user);
+        //    userService.addUser(user);
+        //    //return new ResponseEntity<>("Success", HttpStatus.CREATED);
 //
-  //  }
-    
+        //  }
 
 
-    @GetMapping("/register")
-    public void registerUser() {
-        logger.info("register");
+//    @GetMapping("/register")
+//    public void registerUser() {
+//        logger.info("register");
+//    }
     }
 }

@@ -14,8 +14,8 @@ import { UserService } from './service/user.service';
   styleUrls: ['app.component.css']
 })
 export class AppComponent implements OnInit {
-  
-  constructor(private userService: UserService, pri
+
+  constructor(private userService: UserService, private http: HttpClient) {}
 
   ngOnInit(): void {
   }
@@ -37,29 +37,29 @@ export class AppComponent implements OnInit {
           addForm.reset();
         }
       );
-    }  
-
-    public login(loginForm: NgForm):void {
-      this.userService.loginUser(loginForm.value).subscribe(
-        (response: User) => {
-          console.log(response);
-          console.log("jest ok");
-          loginForm.reset();
-        },
-        (error: HttpErrorResponse) => {
-          console.error("nie jest ok");
-          alert(error.message);
-          loginForm.reset();
-        }
-      );
     }
+
+    // public login(loginForm: NgForm):void {
+    //   this.userService.loginUser(loginForm.value).subscribe(
+    //     (response: User) => {
+    //       console.log(response);
+    //       console.log("jest ok");
+    //       loginForm.reset();
+    //     },
+    //     (error: HttpErrorResponse) => {
+    //       console.error("nie jest ok");
+    //       alert(error.message);
+    //       loginForm.reset();
+    //     }
+    //   );
+    // }
 
     public onOpenModal(mode: string): void {
       const container = document.getElementById('main-container')!;
       const button = document.createElement('button');
 
       console.log("Is container null?" + container == null);
-        
+
       button.type = 'button';
       button.style.display = 'none';
       button.setAttribute('data-toggle', 'modal');

@@ -30,9 +30,9 @@ public class UserService {
         save(user);
     }
 
-    public void addUser(User user){
-        user.setRole(roleRepository.getById( 1));
-        logger.info(user.getRole().getName());
-        save(user);
-    }
+//    public void addUser(User user){
+//        user.setRole(roleRepository.getById( 1));
+//        logger.info(user.getRole().getName());
+//        save(user);
+//    }
 }
