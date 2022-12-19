@@ -25,8 +25,9 @@ export class AppComponent implements OnInit {
 
     public registerUser(addForm: NgForm): void {
       // document.getElementById('add-employee-form').click();
+      console.log("registerUser")
       this.userService.registerUser(addForm.value).subscribe(
-        (response: User) => {
+        (response: void) => {
           console.log(response);
           console.log("jest ok");
           addForm.reset();

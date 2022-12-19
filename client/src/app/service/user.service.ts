@@ -13,14 +13,14 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
 
-  public registerUser(user: User): Observable<User>{
-    var reqHeader = new HttpHeaders({
-      'Access-Control-Allow-Origin' : '*',
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + '11111'
-    });
-    console.log(user);
-    return this.http.post<User>(`${this.apiServerUrl}/user/register`,JSON.stringify({user}), {headers:reqHeader});
+  public registerUser(user: User): Observable<void>{
+    // var reqHeader = new HttpHeaders({
+    //   'Access-Control-Allow-Origin' : '*',
+    //   'Content-Type': 'application/json',
+    //   'Authorization': 'Bearer ' + '11111'
+    // });
+    // return this.http.post<User>(`${this.apiServerUrl}/user/register`,JSON.stringify({user}), {headers:reqHeader});
+    return this.http.post<void>(`${this.apiServerUrl}/user/register`,user);
   }
 
   public loginUser(user: User) {

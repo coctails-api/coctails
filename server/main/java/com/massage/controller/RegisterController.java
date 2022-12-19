@@ -2,6 +2,7 @@ package com.massage.controller;
 
 import com.massage.entity.User;
 import com.massage.service.UserService;
+import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,27 +17,27 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @Controller
 @RequestMapping("/user")
+@Log4j2
 public class RegisterController {
     @Autowired
     private UserService userService;
-    private Logger logger = LoggerFactory.getLogger(RegisterController.class);
 
 
     @PostMapping("/register")
-    public ResponseEntity registerUser(@RequestBody User user, ModelMapper modelMapper) {
-        logger.info("Register user");
-        logger.info(user.getLogin());
-        logger.info(user.getEmail());
-        logger.info(user.getPassword());
-        logger.info(user.getPhone());
-        if (user.getEmail() == null) {
-            logger.info("null");
-            return new ResponseEntity("xca", HttpStatus.BAD_REQUEST);
-        }
+    public ResponseEntity<?> registerUser(@RequestBody User user, ModelMapper modelMapper) {
+        log.info("Register user");
+        log.info(user.getLogin());
+        log.info(user.getEmail());
+        log.info(user.getPassword());
+        log.info(user.getPhone());
+//        if (user.getEmail() == null) {
+//            log.info("null");
+//            return new ResponseEntity("xca", HttpStatus.BAD_REQUEST);
+//        }
         User userx = new User();
         modelMapper.map(user, userx);
         userService.addUser(userx);
-        return ResponseEntity.ok("sda");
+        return new ResponseEntity<>( HttpStatus.OK);
 
         //@PostMapping("/register")
         //public void registerUser(@RequestBody UserDTO userDTO, ModelMapper modelMapper){
