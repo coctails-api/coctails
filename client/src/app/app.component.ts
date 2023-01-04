@@ -14,7 +14,6 @@ import { UserService } from './service/user.service';
   styleUrls: ['app.component.css']
 })
 export class AppComponent implements OnInit {
-
   constructor(private userService: UserService, private http: HttpClient) {}
 
   ngOnInit(): void {
@@ -31,6 +30,7 @@ export class AppComponent implements OnInit {
           console.log(response);
           console.log("jest ok");
           addForm.reset();
+
         },
         (error: HttpErrorResponse) => {
           console.error("nie jest ok");
