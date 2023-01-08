@@ -1,0 +1,36 @@
+<div class="modal fade" id="addEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addEmployeeModalLabel">Sign in</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formGroup"  (ngSubmit)="registerUser()">
+          <div class="form-group">
+            <label for="login">Login</label>
+            <input formControlName="login" type="text" name="login" class="form-control" id="login" placeholder="Login" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input formControlName="email" type="email" name="email" class="form-control" id="email" placeholder="Email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Password</label>
+            <input formControlName="password" type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input formControlName="phone" type="text" name="phone" class="form-control" id="phone" placeholder="Phone" required>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="add-employee-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Register</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

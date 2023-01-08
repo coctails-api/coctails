@@ -1,24 +1,26 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-import { UserService } from './service/user.service';
-import { HttpClientModule } from '@angular/common/http';
+import { NavUnloggedComponent } from './nav/nav-unlogged/nav-unlogged.component';
+import { NavLoggedComponent } from './nav/nav-logged/nav-logged.component';
+import { RegisterModalComponent } from './popupModal/register-modal/register-modal.component';
+import { LoginModalComponent } from './popupModal/login-modal/login-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    NavUnloggedComponent,
+    NavLoggedComponent,
+    RegisterModalComponent,
+    LoginModalComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
+    AppRoutingModule
   ],
-  providers: [UserService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

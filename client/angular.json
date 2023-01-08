@@ -20,8 +20,7 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "src/web.config"
+              "src/assets"
             ],
             "styles": [
               "src/styles.css"
@@ -63,10 +62,6 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "client:build",
-            "proxyConfig": "src/proxy.conf.json"
-          },
           "configurations": {
             "production": {
               "browserTarget": "client:build:production"
@@ -104,6 +99,6 @@
     }
   },
   "cli": {
-    "analytics": false
+    "analytics": "26627209-a66f-461d-a477-18f5a8f7cc73"
   }
 }
