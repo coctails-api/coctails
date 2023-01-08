@@ -9,7 +9,7 @@ import {RegisterModalComponent} from "./popupModal/register-modal/register-modal
 export class AppComponent {
   title = 'client';
 
-  constructor(private registerModalComponent: RegisterModalComponent) {
+  constructor() {
   }
 
   onOpenModalRegister(): void{

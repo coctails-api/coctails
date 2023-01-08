@@ -7,6 +7,7 @@ import { NavUnloggedComponent } from './nav/nav-unlogged/nav-unlogged.component'
 import { NavLoggedComponent } from './nav/nav-logged/nav-logged.component';
 import { RegisterModalComponent } from './popupModal/register-modal/register-modal.component';
 import { LoginModalComponent } from './popupModal/login-modal/login-modal.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LoginModalComponent } from './popupModal/login-modal/login-modal.compon
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
