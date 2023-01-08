@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {RegisterModalComponent} from "./popupModal/register-modal/register-modal.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-root',
@@ -9,10 +10,10 @@ import {RegisterModalComponent} from "./popupModal/register-modal/register-modal
 export class AppComponent {
   title = 'client';
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
   }
 
   onOpenModalRegister(): void{
-
+    const dialogRef = this.dialog.open(RegisterModalComponent);
   }
 }
