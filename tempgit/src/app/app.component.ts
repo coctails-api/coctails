@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {RegisterModalComponent} from "./popupModal/register-modal/register-modal.component";
 import {MatDialog} from "@angular/material/dialog";
-import {LoginModalComponent} from "./popupModal/login-modal/login-modal.component";
 
 @Component({
   selector: 'app-root',
@@ -15,10 +14,6 @@ export class AppComponent {
   }
 
   onOpenModalRegister(): void{
-    this.dialog.open(RegisterModalComponent);
-  }
 
-  onOpenModalLogin():void{
-    this.dialog.open(LoginModalComponent);
   }
 }

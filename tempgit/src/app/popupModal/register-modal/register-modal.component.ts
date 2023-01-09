@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
 import {FormControl, FormGroup} from "@angular/forms";
 import {User} from "../../classes/user";
-import {MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-register-modal',
@@ -12,7 +12,7 @@ import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 export class RegisterModalComponent implements OnInit {
   formGroup: FormGroup;
 
-  constructor(public dialogRef: MatDialogRef<RegisterModalComponent>, public dialog: MatDialog) {
+  constructor(public dialogRef: MatDialogRef<RegisterModalComponent>) {
     this.formGroup = new FormGroup({
       login: new FormControl(''),
       email: new FormControl(''),
@@ -32,9 +32,5 @@ export class RegisterModalComponent implements OnInit {
 
       let user = new User(login, email, password, phone);
       console.log(user);
-  }
-
-  closeModal(): void{
-    this.dialog.closeAll();
   }
 }

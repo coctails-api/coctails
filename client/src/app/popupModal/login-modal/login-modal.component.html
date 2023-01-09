@@ -1,1 +1,24 @@
-<p>login-modal works!</p>
+<div class="modal-dialog" role="document">
+  <p>
+    Logowanie
+  </p>
+  <div class="modal-content">
+    <div class="modal-body">
+      <form [formGroup]="formGroup" (ngSubmit)="login()">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input formControlName="email" type="text" name="email" class="form-control" id="email" placeholder="email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input formControlName="password" type="password" name="password" class="form-control" id="password" placeholder="password" required>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" id="add-employee-form" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+          <button (click)="closeModal()" type="button" id="add-employee-form" class="btn btn-secondary" data-dismiss="modal">Anuluj</button>
+          <button type="submit" class="btn btn-primary">Zaloguj się</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
