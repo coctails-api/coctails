@@ -1,5 +1,6 @@
 package com.massage;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -20,11 +21,11 @@ import java.util.Arrays;
 
 @SpringBootApplication
 @EnableWebMvc
+@Slf4j
 public class MassageSystemApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MassageSystemApplication.class, args);
 	}
-	Logger logger = LoggerFactory.getLogger(MassageSystemApplication.class);
 	@Bean
 	public CorsFilter corsFilter() {
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
@@ -38,7 +39,8 @@ public class MassageSystemApplication {
 		corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
 		UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();
 		urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
-		logger.info("cors");
+		log.info("cors");
 		return new CorsFilter(urlBasedCorsConfigurationSource);
 	}
+
 }
