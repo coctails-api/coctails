@@ -22,37 +22,13 @@ public class RegisterController {
     @Autowired
     private UserService userService;
 
-
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody User user, ModelMapper modelMapper) {
         log.info("Register user");
-        log.info(user.getLogin());
-        log.info(user.getEmail());
-        log.info(user.getPassword());
-        log.info(user.getPhone());
-//        if (user.getEmail() == null) {
-//            log.info("null");
-//            return new ResponseEntity("xca", HttpStatus.BAD_REQUEST);
-//        }
-        User userx = new User();
-        modelMapper.map(user, userx);
-        userService.addUser(userx);
-        return new ResponseEntity<>( HttpStatus.OK);
-
-        //@PostMapping("/register")
-        //public void registerUser(@RequestBody UserDTO userDTO, ModelMapper modelMapper){
-        //    logger.info("xxx");
-        //    User user = new User();
-        //    modelMapper.map(userDTO, user);
-        //    userService.addUser(user);
-        //    //return new ResponseEntity<>("Success", HttpStatus.CREATED);
-//
-        //  }
-
-
-//    @GetMapping("/register")
-//    public void registerUser() {
-//        logger.info("register");
-//    }
+        User newUser = new User();
+        modelMapper.map(user, newUser);
+        userService.validation(user);
+        userService.addUser(newUser);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

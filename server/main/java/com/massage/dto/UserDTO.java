@@ -11,17 +11,13 @@ import org.springframework.stereotype.Service;
 @ToString
 public class UserDTO {
     private Integer iduser;
-    private String login;
     private String email;
     private String password;
-    private String phone;
 
-    public UserDTO(Integer iduser, String login, String email, String password, String phone) {
+    public UserDTO(Integer iduser, String email, String password) {
         this.iduser = iduser;
-        this.login = login;
         this.email = email;
         this.password = password;
-        this.phone = phone;
     }
 
     public UserDTO() {

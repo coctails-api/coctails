@@ -21,12 +21,6 @@ export class RegisterModalComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private registerService: RegisterService) {
     this.formGroup = new FormGroup({
-      login: new FormControl('',[
-        Validators.required,
-        Validators.minLength(3),
-        Validators.pattern(/^[a-zA-Z]+$/),
-        Validators.pattern(/^\S+$/)
-      ]),
       email: new FormControl('',[
         Validators.required,
         Validators.pattern(/^\S+$/),
@@ -36,8 +30,7 @@ export class RegisterModalComponent implements OnInit {
         Validators.minLength(5),
         Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).+$/),
         Validators.pattern(/^\S+$/)
-      ]),
-      phone: new FormControl(''),
+      ])
     });
   }
 
@@ -50,12 +43,10 @@ export class RegisterModalComponent implements OnInit {
 
   registerUser(): void{
     this.changeSubmit();
-      const login = this.formGroup.get('login')?.value;
       const email = this.formGroup.get('email')?.value;
       const password = this.formGroup.get('password')?.value;
-      const phone = this.formGroup.get('phone')?.value;
 
-      let user = new User(login, email, password, phone);
+      let user = new User(email, password);
 
       if(this.formGroup.invalid)
         return;
