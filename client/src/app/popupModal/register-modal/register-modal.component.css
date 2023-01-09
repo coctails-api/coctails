@@ -3,3 +3,12 @@ p{
   padding: 5%;
   font-size: 30px;
 }
+
+
+.isValid{
+  color: red;
+}
+
+/*.modal-dialog{*/
+/*  width: 750%;*/
+/*}*/
