@@ -30,7 +30,8 @@ export class RegisterModalComponent implements OnInit {
         Validators.minLength(5),
         Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).+$/),
         Validators.pattern(/^\S+$/)
-      ])
+      ]),
+      terms: new FormControl('', [Validators.required])
     });
   }
 

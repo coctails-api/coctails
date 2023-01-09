@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {MatDialog} from "@angular/material/dialog";
 
 @Component({
@@ -12,8 +12,15 @@ export class LoginModalComponent implements OnInit {
 
   constructor(public dialog: MatDialog) {
     this.formGroup = new FormGroup({
-      email: new FormControl(''),
-      password: new FormControl(''),
+      email: new FormControl('',[
+        Validators.required,
+        Validators.pattern(/^\S+$/),
+        Validators.email]),
+      password: new FormControl('',[
+        Validators.required,
+        Validators.minLength(5),
+        Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).+$/),
+        Validators.pattern(/^\S+$/)]),
     });
   }
 
