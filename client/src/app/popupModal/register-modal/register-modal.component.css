@@ -9,6 +9,10 @@ p{
   color: red;
 }
 
+a:hover{
+  cursor: pointer;
+}
+
 /*.modal-dialog{*/
 /*  width: 750%;*/
 /*}*/
