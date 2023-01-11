@@ -3,6 +3,8 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {MatDialog} from "@angular/material/dialog";
 import {AuthenticationService} from "../../service/authentication.service";
 import {User} from "../../classes/user";
+import {RouterService} from "../../service/router.service";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-login-modal',
@@ -12,13 +14,13 @@ import {User} from "../../classes/user";
 export class LoginModalComponent implements OnInit {
   formGroup: FormGroup;
 
-  constructor(public dialog: MatDialog, private authenticateService: AuthenticationService) {
+  constructor(public dialog: MatDialog, private authenticateService: AuthenticationService, private routerService: RouterService) {
     this.formGroup = new FormGroup({
-      email: new FormControl('',[
+      email: new FormControl('', [
         Validators.required,
         Validators.pattern(/^\S+$/),
         Validators.email]),
-      password: new FormControl('',[
+      password: new FormControl('', [
         Validators.required,
         Validators.minLength(5),
         Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).+$/),
@@ -29,24 +31,27 @@ export class LoginModalComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login():void{
+  login(): void {
     const email = this.formGroup.get('email')?.value;
     const password = this.formGroup.get('password')?.value;
 
     let user = new User(email, password);
 
     this.authenticateService.authenticate(user).subscribe(data => {
-      localStorage.setItem('token',data.token);
+      localStorage.setItem('token', data.token);
       if (localStorage.getItem('token') !== null) {
-
-        // this.routerService.routeToDashboard();
-      }else{
+        this.closeModal();
+        this.routerService.routeToDashboard();
+      } else {
         alert("CHUJA NIE ZALOGUJESZ SIE BEDZIESZ SIE Z TYM JEBAC CALE ZYCIE");
       }
+    }, (error: HttpErrorResponse) => {
+      console.error("Bad response from remote server");
+      console.error(error);
     });
   }
 
-  closeModal():void{
+  closeModal() : void {
     this.dialog.closeAll();
   }
 }

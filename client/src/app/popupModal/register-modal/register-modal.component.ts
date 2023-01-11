@@ -52,14 +52,14 @@ export class RegisterModalComponent implements OnInit {
       if(this.formGroup.invalid)
         return;
 
-      this.registerService.registerUser(user).subscribe(
-        (response: void) => {
+      this.registerService.registerUser(user).subscribe((response: void) => {
           console.log(response);
           this.formGroup.reset();
           this.registered = true;
         }, (error: HttpErrorResponse) =>{
           console.error("Bad response from remote server");
           console.error(error);
+          alert("Zle w chjuj");
         });
   }
 

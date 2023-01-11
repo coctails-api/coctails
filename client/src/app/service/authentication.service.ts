@@ -14,11 +14,11 @@ export class AuthenticationService {
   public authenticate(user: User) : Observable<any>{
     const httpOptions = {
       headers: new HttpHeaders({
-        'Authorization': 'Bearer ' + localStorage.getItem('token')
+        'Authorization' : `Bearer ${localStorage.getItem('token')}`
       })
     };
 
-    return this.http.post<void>(`${this.apiServerUrl}/register`,user, httpOptions);
+    return this.http.post<any>(`${this.apiServerUrl}/user/signin`,user, httpOptions);
   }
 
   isUserLoggedIn(){

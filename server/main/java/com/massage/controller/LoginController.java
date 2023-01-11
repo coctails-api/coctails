@@ -18,12 +18,13 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
 @CrossOrigin("*")
-@RequestMapping("/")
+@RestController
+@RequestMapping("/user")
 @Slf4j
 public class LoginController {
     @Autowired
@@ -34,8 +35,10 @@ public class LoginController {
 
     @Autowired
     private JwtUserDetailsService userDetailsService;
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
-    @PostMapping("signin")
+    @RequestMapping(value = "/signin", method = RequestMethod.POST)
     public ResponseEntity<?> signIn(@RequestBody User user) throws Exception {
         authenticate(user.getEmail(), user.getPassword());
 
