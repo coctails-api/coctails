@@ -23,11 +23,10 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    @ManyToOne
+    @Enumerated(EnumType.STRING)
+    @Column(length = 20)
     private Role role;
-
-
-    public User(String login, String email, String password, String phone, Role role) {
+    public User(String email, String password, Role role) {
         this.email = email;
         this.password = password;
         this.role = role;
