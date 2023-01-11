@@ -11,14 +11,5 @@ import {LoginModalComponent} from "./popupModal/login-modal/login-modal.componen
 export class AppComponent {
   title = 'client';
 
-  constructor(public dialog: MatDialog) {
-  }
 
-  onOpenModalRegister(): void{
-    this.dialog.open(RegisterModalComponent);
-  }
-
-  onOpenModalLogin():void{
-    this.dialog.open(LoginModalComponent);
-  }
 }

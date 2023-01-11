@@ -13,6 +13,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {HttpClientModule} from "@angular/common/http";
 import {MatButtonModule} from "@angular/material/button";
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { IndexComponent } from './index/index.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     RegisterModalComponent,
     LoginModalComponent,
     DashboardComponent,
+    IndexComponent,
   ],
   imports: [
     BrowserModule,

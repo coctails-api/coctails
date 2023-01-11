@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog} from "@angular/material/dialog";
+import {RegisterModalComponent} from "../../popupModal/register-modal/register-modal.component";
+import {LoginModalComponent} from "../../popupModal/login-modal/login-modal.component";
 
 @Component({
   selector: 'app-nav-unlogged',
@@ -6,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-unlogged.component.css']
 })
 export class NavUnloggedComponent implements OnInit {
-
-  constructor() { }
+  constructor(public dialog: MatDialog) {
+  }
 
   ngOnInit(): void {
   }
 
+  onOpenModalRegister(): void{
+    this.dialog.open(RegisterModalComponent);
+  }
+
+  onOpenModalLogin():void{
+    this.dialog.open(LoginModalComponent);
+  }
 }

@@ -18,7 +18,7 @@ export class AuthenticationService {
       })
     };
 
-    return this.http.post<any>(`${this.apiServerUrl}/user/signin`,user, httpOptions);
+    return this.http.post<any>(`${this.apiServerUrl}/user/signin`,user);
   }
 
   isUserLoggedIn(){

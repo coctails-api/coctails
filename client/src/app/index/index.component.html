@@ -1,0 +1,6 @@
+<div *ngIf="authService.isUserLoggedIn()">
+  <app-nav-logged></app-nav-logged>
+</div>
+<div *ngIf="!authService.isUserLoggedIn()">
+  <app-nav-unlogged></app-nav-unlogged>
+</div>
