@@ -1,10 +1,15 @@
 package com.massage.config;
 
+import com.massage.repository.UserRepository;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,9 +19,12 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
 @Component
+@Slf4j
 public class JwtTokenUtil implements Serializable {
     private static final long serialVersionUID = -2550185165626007488L;
     public static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60;
+    @Autowired
+    UserRepository userRepository;
 
     @Value("${jwt.secret}")
     private String secret;
@@ -49,6 +57,8 @@ public class JwtTokenUtil implements Serializable {
     //generate token for user
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
+        claims.put("roles", userRepository.findByEmail(userDetails.getUsername()).getRole().toString());
+        log.info(userRepository.findByEmail(userDetails.getUsername()).getRole().toString());
         return doGenerateToken(claims, userDetails.getUsername());
     }
 
@@ -67,5 +77,9 @@ public class JwtTokenUtil implements Serializable {
     public Boolean validateToken(String token, UserDetails userDetails) {
         final String username = getUsernameFromToken(token);
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
+    }
+
+    public Collection<? extends GrantedAuthority> getRolesFromToken(String token) {
+        return (Collection<? extends GrantedAuthority>) getClaimFromToken(token, claims -> claims.get("roles"));
     }
 }

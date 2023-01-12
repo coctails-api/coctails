@@ -14,6 +14,11 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatButtonModule} from "@angular/material/button";
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { IndexComponent } from './index/index.component';
+import {JWT_OPTIONS, JwtHelperService} from "@auth0/angular-jwt";
+
+const jwtOptions = {
+  tokenGetter: () => localStorage.getItem('token'),
+};
 
 @NgModule({
   declarations: [
@@ -34,7 +39,7 @@ import { IndexComponent } from './index/index.component';
     MatDialogModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [JwtHelperService, {provide: JWT_OPTIONS, useValue:jwtOptions}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,6 +9,15 @@
 <!--        <a class="nav-link" (click)="onOpenModalLogin()">Sign in <span class="sr-only">(current)</span></a>-->
         <a class="nav-link" (click)="logout()">Wyloguj się <span class="sr-only">(current)</span></a>
       </li>
+<!--      <li class="nav-item active" *ngIf="userHasRole('USER')">-->
+      <li class="nav-item active" *ngIf="userHasRole('USER')">
+        <!--        <a class="nav-link" (click)="onOpenModalLogin()">Sign in <span class="sr-only">(current)</span></a>-->
+        hej huj
+      </li>
+      <li class="nav-item active" *ngIf="userHasRole('ADMIN')">
+        <!--        <a class="nav-link" (click)="onOpenModalLogin()">Sign in <span class="sr-only">(current)</span></a>-->
+        hej huj
+      </li>
     </ul>
   </div>
 </nav>
