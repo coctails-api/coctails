@@ -11,9 +11,7 @@ export class AuthService {
     const token = localStorage.getItem('token');
     if (token) {
       const decodedToken = this.jwtHelper.decodeToken(token);
-      alert("Decode token: " + decodedToken)
       this.userRoles = [decodedToken.roles];
-      alert("userRoles: " + this.userRoles)
     }
   }
 
