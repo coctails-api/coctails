@@ -10,6 +10,4 @@ import {LoginModalComponent} from "./popupModal/login-modal/login-modal.componen
 })
 export class AppComponent {
   title = 'client';
-
-
 }

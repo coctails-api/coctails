@@ -15,6 +15,7 @@ import {MatButtonModule} from "@angular/material/button";
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { IndexComponent } from './index/index.component';
 import {JWT_OPTIONS, JwtHelperService} from "@auth0/angular-jwt";
+import { WelcomepageComponent } from './welcomepage/welcomepage.component';
 
 const jwtOptions = {
   tokenGetter: () => localStorage.getItem('token'),
@@ -29,6 +30,7 @@ const jwtOptions = {
     LoginModalComponent,
     DashboardComponent,
     IndexComponent,
+    WelcomepageComponent,
   ],
   imports: [
     BrowserModule,

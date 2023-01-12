@@ -1,18 +1,27 @@
 import { Injectable } from '@angular/core';
+import {JwtHelperService} from "@auth0/angular-jwt";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  // constructor(private jwtHelper: JwtHelperService) {}
-  //
-  // public generateJwt(payload: any): string {
-  //   // Wygeneruj token JWT z użyciem biblioteki angular2-jwt
-  //   const jwt = this.jwtHelper.encode(payload);
-  //
-  //   // Umieść token w ciasteczku przeglądarki
-  //   document.cookie = `jwt=${jwt}`;
-  //
-  //   return jwt;
-  // }
+  userRoles: string[] = [];
+
+  constructor(public jwtHelper: JwtHelperService) {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const decodedToken = this.jwtHelper.decodeToken(token);
+      alert("Decode token: " + decodedToken)
+      this.userRoles = [decodedToken.roles];
+      alert("userRoles: " + this.userRoles)
+    }
+  }
+
+  isAdmin(): boolean {
+    return this.userRoles.some(r => r === "ADMIN");
+  }
+
+  isUser(): boolean{
+    return this.userRoles.some(r => r === "USER");
+  }
 }
