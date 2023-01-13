@@ -21,7 +21,6 @@ import java.time.LocalDateTime;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@Controller
 @RequestMapping("/user")
 @Log4j2
 public class RegisterController {

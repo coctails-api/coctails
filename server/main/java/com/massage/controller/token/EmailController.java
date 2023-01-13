@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin("*")
-@Controller
 @RestController
 @Slf4j
 @RequestMapping("/user")
@@ -19,12 +18,8 @@ public class EmailController {
 
     @GetMapping(path = "/confirm")
     public String confirm(@RequestParam("token") String token) {
-        log.info("confirm");
-        try{
-            return userService.confirmToken(token);
-        }catch (Exception e){
-            return e.toString();
-        }
+        log.info("confirm token: " + token);
+        return userService.confirmToken(token);
     }
 
     @GetMapping(path = "/confirmx")

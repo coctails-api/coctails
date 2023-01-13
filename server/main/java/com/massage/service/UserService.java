@@ -86,20 +86,22 @@ public class UserService {
                 .getToken(token)
                 .orElseThrow(() ->
                         new IllegalStateException("token not found"));
-
+        log.info("jest token");
         if (confirmationToken.getConfirmed() != null) {
-            throw new IllegalStateException("email already confirmed");
+//            throw new IllegalStateException("email already confirmed");
+            return "Email zostal potwierdzony";
         }
 
         LocalDateTime expired = confirmationToken.getExpired();
 
         if (expired.isBefore(LocalDateTime.now())) {
-            throw new IllegalStateException("token expired");
+            return "Czas na potwierdzenie minal. Sprobuj ponownie";
+//            throw new IllegalStateException("token expired");
         }
 
         confirmationTokenService.setConfirmed(token);
         allowAccess(token);
-        return "confirmed";
+        return "Potwierdzono email";
     }
 
     private String buildEmail(String name, String link) {

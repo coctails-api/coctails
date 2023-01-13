@@ -11,29 +11,29 @@ import {HttpErrorResponse} from "@angular/common/http";
 })
 export class ConfirmEmailComponent implements OnInit {
   token: string;
-  conf: string;
+  info: string;
   constructor(private route: ActivatedRoute, private registerService: RegisterService) {
     this.token = '';
-    this.conf = '';
+    this.info = '';
   }
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-          alert(params)
-          this.token = params['token'];
-          alert(this.token)
-        }
-      );
-    this.registerService.confirmEmail(this.token).subscribe((response: string) => {
-      this.token = response.toString();
-    }, (error: HttpErrorResponse) =>{
-    });
+    this.informationForUser();
+  }
 
-    // this.route.queryParams.subscribe(params => {
-    //       this.token = params.toString();
-    //     }
-    //   );
-    // // this.conf = this.register.confirmEmail(this.token);
-    // this.conf = this.register.test();
+  informationForUser():void{
+    this.route.queryParams.subscribe(params => {
+        this.token = params['token'];
+      }
+    );
+
+    this.registerService.confirmEmail(this.token).subscribe(
+      data => {
+        this.info = data;
+      },
+      error => {
+        console.error(error);
+      }
+    );
   }
 }
