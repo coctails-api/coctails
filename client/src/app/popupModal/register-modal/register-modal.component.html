@@ -18,6 +18,9 @@
             <div class="isValid" *ngIf="formGroup.controls['email'].invalid && submitted != false">
               To raczej nie jest e-mailem
             </div>
+            <div class="isValid">
+              {{conflict}}
+            </div>
           </div>
           <div class="form-group">
             <label for="password">Hasło</label>

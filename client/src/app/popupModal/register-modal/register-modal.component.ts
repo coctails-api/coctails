@@ -18,6 +18,7 @@ export class RegisterModalComponent implements OnInit {
   formGroup: FormGroup;
   submitted = false;
   registered = false;
+  conflict = "";
 
   constructor(public dialog: MatDialog, private registerService: RegisterService) {
     this.formGroup = new FormGroup({
@@ -57,9 +58,7 @@ export class RegisterModalComponent implements OnInit {
           this.formGroup.reset();
           this.registered = true;
         }, (error: HttpErrorResponse) =>{
-          console.error("Bad response from remote server");
-          console.error(error);
-          alert("Zle w chjuj");
+          {{error.status == 409 ? this.conflict = "Email już istnieje" : this.conflict = ""}}
         });
   }
 

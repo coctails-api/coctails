@@ -23,21 +23,18 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarColor02" style="margin-right: 5%;">
+  <div class="collapse navbar-collapse" id="navbarColor02">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <!--        <a class="nav-link" (click)="onOpenModalLogin()">Sign in <span class="sr-only">(current)</span></a>-->
-        <a class="nav-link" (click)="logout()">Wyloguj się <span class="sr-only">(current)</span></a>
-      </li>
-      <!--      <li class="nav-item active" *ngIf="userHasRole('USER')">-->
       <li class="nav-item active" *ngIf="auth.isUser()">
-        <!--        <a class="nav-link" (click)="onOpenModalLogin()">Sign in <span class="sr-only">(current)</span></a>-->
         user
       </li>
       <li class="nav-item active" *ngIf="auth.isAdmin()">
-        <!--        <a class="nav-link" (click)="onOpenModalLogin()">Sign in <span class="sr-only">(current)</span></a>-->
         admin
       </li>
     </ul>
+<!--  </div>-->
+<!--  <a class="nav-link" (click)="logout()" style="float:right;color:white;">Wyloguj się <span class="sr-only">(current)</span></a>-->
+<!--  <a class="nav-link" (click)="logout()" style="float:right;color:white;">Wyloguj się <span class="sr-only">(current)</span></a>-->
+  <a class="nav-link" (click)="logout()" style="float:right;color:white; margin-right: 5%;">Wyloguj się<span class="sr-only">(current)</span></a>
   </div>
 </nav>

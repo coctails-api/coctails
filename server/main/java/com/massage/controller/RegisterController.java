@@ -25,6 +25,8 @@ public class RegisterController {
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody User user, ModelMapper modelMapper) {
         log.info("Register user");
+        if(userService.userExists(user.getEmail().toLowerCase()))
+            return new ResponseEntity<>("User exists", HttpStatus.CONFLICT);
         User newUser = new User();
         modelMapper.map(user, newUser);
         userService.validation(user);

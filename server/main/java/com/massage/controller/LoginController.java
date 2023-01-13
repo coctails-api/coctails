@@ -40,6 +40,7 @@ public class LoginController {
 
     @RequestMapping(value = "/signin", method = RequestMethod.POST)
     public ResponseEntity<?> signIn(@RequestBody User user) throws Exception {
+        user.setEmail(user.getEmail().toLowerCase());
         authenticate(user.getEmail(), user.getPassword());
 
         final UserDetails userDetails = userDetailsService
