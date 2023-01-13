@@ -23,6 +23,9 @@ public class User {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "active")
+    private int active;
+
     @Enumerated(EnumType.STRING)
     @Column(length = 20)
     private Role role;
@@ -30,6 +33,7 @@ public class User {
         this.email = email;
         this.password = password;
         this.role = role;
+        this.active = 0;
     }
 
     public User() {
