@@ -1,5 +1,7 @@
 package com.massage.controller;
 
+import com.massage.controller.token.ConfirmationToken;
+import com.massage.controller.token.ConfirmationTokenService;
 import com.massage.entity.User;
 import com.massage.service.UserService;
 import lombok.extern.log4j.Log4j2;
@@ -11,7 +13,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.event.TransactionalEventListener;
 import org.springframework.web.bind.annotation.*;
+
+import javax.transaction.Transactional;
+import java.time.LocalDateTime;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -21,6 +27,8 @@ import org.springframework.web.bind.annotation.*;
 public class RegisterController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private ConfirmationTokenService confirmationTokenService;
 
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody User user, ModelMapper modelMapper) {

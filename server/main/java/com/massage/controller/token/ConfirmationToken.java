@@ -30,6 +30,7 @@ public class ConfirmationToken {
     private LocalDateTime created;
     @Column(name = "expired")
     private LocalDateTime expired;
+    private LocalDateTime confirmed;
     @ManyToOne
     @JoinColumn
     private User user;

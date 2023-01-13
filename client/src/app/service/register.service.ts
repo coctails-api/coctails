@@ -15,8 +15,16 @@ export class RegisterService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Authorization' : `Bearer ${localStorage.getItem('token')}`
-      })
+      }),
+      responseType: 'text' as 'json'
     };
     return this.http.post<any>(`${this.apiServerUrl}/user/register`,user);
+  }
+
+  public confirmEmail(email:string): Observable<string>{
+    const headers = new HttpHeaders({
+      'Access-Control-Allow-Origin': 'http://localhost:8080'
+    });
+    return this.http.get<string>(`${this.apiServerUrl}/user/confirm?token=${email}`);
   }
 }
