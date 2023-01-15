@@ -1,5 +1,6 @@
 package com.massage.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -13,9 +14,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Configuration
 @EnableWebMvc
 public class CorsConfig implements WebMvcConfigurer{
+    @Value("${api.client}")
+    private static String clientUrl;
 
-    private static final String[] ALLOWED_ORIGINS = {"https://localhost:4200",
-            "https://localhost:8080"};
+    @Value("${api.server}")
+    private static String serverUrl;
+
+    private static final String[] ALLOWED_ORIGINS = {clientUrl,
+            serverUrl};
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {

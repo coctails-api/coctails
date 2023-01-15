@@ -6,9 +6,10 @@ import {ConfirmEmailComponent} from "./confirm-email/confirm-email.component";
 import {IndexComponent} from "./index/index.component";
 
 const routes: Routes = [
-  { path: '', component: IndexComponent },
+  { path: '', component: IndexComponent, pathMatch: 'full'},
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'user/confirm', component: ConfirmEmailComponent, data: { token: ':token' } }
+  { path: 'user/confirm', component: ConfirmEmailComponent, data: { token: ':token' }},
+  { path: '**', component: IndexComponent},
   // { path: 'admin', canActivate: [AdminGuard], loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) }
 ];
 

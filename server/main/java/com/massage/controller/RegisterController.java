@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "${api.client}")
 @RestController
 @RequestMapping("/user")
 @Log4j2
