@@ -2,3 +2,41 @@
   margin-left: 10%;
   margin-right: 10%;
 }
+
+
+.onavbar{
+  width: 85%;
+  margin: auto;
+  padding: 35px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.onavbar ul li{
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+  position: relative;
+}
+
+.onavbar ul li{
+  text-decoration: none;
+  color: #002853;
+  text-transform: uppercase;
+}
+
+.onavbar ul li a::after{
+  content: '';
+  height: 3px;
+  width: 0;
+  background: #009688;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  transition: 0.35s;
+}
+
+.onavbar ul li a:hover::after{
+  width: 100%;
+}
