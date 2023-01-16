@@ -3,6 +3,11 @@
   margin-right: 10%;
 }
 
+.icon{
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+}
 
 .onavbar{
   width: 85%;
@@ -11,32 +16,54 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: bisque;
+  color: #002853;
+}
+
+.onenavbar ul{
+  list-style: none;
+  position: relative;
+  text-decoration: none;
+  margin: 0 20px;
+  text-transform: uppercase;
+  width: calc(25% - 20px);
+
 }
 
 .onavbar ul li{
   list-style: none;
   display: inline-block;
-  margin: 0 20px;
+  margin: 0 10px;
   position: relative;
 }
 
-.onavbar ul li{
-  text-decoration: none;
-  color: #002853;
-  text-transform: uppercase;
+.logout:hover{
+  transition: all 0.25s;
+  background-color: #2ec9a0;
+  transform: scale(1.07);
+  box-shadow: 0px 0px 5px #2ec9a0;
 }
 
-.onavbar ul li a::after{
-  content: '';
-  height: 3px;
-  width: 0;
-  background: #009688;
-  position: absolute;
-  left: 0;
-  bottom: -10px;
-  transition: 0.35s;
+.logout{
+  background-color: #21BF96;
+  padding: 5px 34px 5px 34px;
+  border-radius: 30px 30px 30px 30px;
+  line-height: 32px;
+  cursor: pointer;
 }
 
-.onavbar ul li a:hover::after{
-  width: 100%;
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+@media only screen and (max-width: 600px) {
+  .onavbar{
+    width: 100%;
+    margin: auto;
+  }
+
+  .onavbar ul:nth-child(2), ul:nth-child(3){
+    display: none;
+  }
 }

@@ -14,14 +14,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Configuration
 @EnableWebMvc
 public class CorsConfig implements WebMvcConfigurer{
-    @Value("${api.client}")
-    private static String clientUrl;
-
-    @Value("${api.server}")
-    private static String serverUrl;
-
-    private static final String[] ALLOWED_ORIGINS = {clientUrl,
-            serverUrl};
+    private static final String[] ALLOWED_ORIGINS = {"${api.client}",
+            "{api.server}"};
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
