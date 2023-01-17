@@ -8,6 +8,8 @@ import {AuthService} from "../../service/auth.service";
   styleUrls: ['./nav-logged.component.css']
 })
 export class NavLoggedComponent implements OnInit {
+  isOpen = false;
+
   constructor(public jwtHelper: JwtHelperService, public auth: AuthService) {
 
   }
@@ -15,7 +17,11 @@ export class NavLoggedComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  logout():void{
+  logout(): void {
     localStorage.removeItem('token');
+  }
+
+  toggleMenu() {
+    this.isOpen = !this.isOpen;
   }
 }

@@ -1,17 +1,40 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" style="color:white;">Drinki</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarColor02">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <!--        <button class="nav-link" (click)="onOpenModalRegister()">Register <span class="sr-only">(current)</span></button>-->
-        <a class="nav-link" (click)="onOpenModalRegister()">Register <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" (click)="onOpenModalLogin()">Sign in <span class="sr-only">(current)</span></a>
-      </li>
-    </ul>
+<!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark">-->
+<!--  <a class="navbar-brand" style="color:white;">Drinki</a>-->
+<!--  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--    <span class="navbar-toggler-icon"></span>-->
+<!--  </button>-->
+<!--  <div class="collapse navbar-collapse" id="navbarColor02">-->
+<!--    <ul class="navbar-nav mr-auto">-->
+<!--      <li class="nav-item active">-->
+<!--        &lt;!&ndash;        <button class="nav-link" (click)="onOpenModalRegister()">Register <span class="sr-only">(current)</span></button>&ndash;&gt;-->
+<!--        <a class="nav-link" (click)="onOpenModalRegister()">Register <span class="sr-only">(current)</span></a>-->
+<!--      </li>-->
+<!--      <li class="nav-item active">-->
+<!--        <a class="nav-link" (click)="onOpenModalLogin()">Sign in <span class="sr-only">(current)</span></a>-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--</nav>-->
+
+<nav class="navbar-content">
+  <h1 class="logo">coctails-api</h1>
+  <ul class="nav-links">
+    <li>cscs</li>
+    <li>cscs</li>
+    <li>cscs</li>
+    <li>cscs</li>
+  </ul>
+  <ul class="nav-links" [ngClass]="{'mobile-menu': isOpen}">
+    <li class="nav-link" (click)="onOpenModalRegister()">
+      Zaloguj się
+    </li>
+    <li class="ctn" (click)="onOpenModalLogin()">
+      Rejestracja
+    </li>
+  </ul>
+  <div class="my-btn" (click)="toggleMenu()">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
   </div>
 </nav>

@@ -9,6 +9,9 @@ import {LoginModalComponent} from "../../popupModal/login-modal/login-modal.comp
   styleUrls: ['./nav-unlogged.component.css']
 })
 export class NavUnloggedComponent implements OnInit {
+  isOpen = false;
+
+
   constructor(public dialog: MatDialog) {
   }
 
@@ -21,5 +24,9 @@ export class NavUnloggedComponent implements OnInit {
 
   onOpenModalLogin():void{
     this.dialog.open(LoginModalComponent);
+  }
+
+  toggleMenu() {
+    this.isOpen = !this.isOpen;
   }
 }

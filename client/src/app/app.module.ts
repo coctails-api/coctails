@@ -18,6 +18,7 @@ import {JWT_OPTIONS, JwtHelperService} from "@auth0/angular-jwt";
 import { WelcomepageComponent } from './welcomepage/welcomepage.component';
 import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
 import { FadeBackgroundDirective } from './welcomepage/fade-background.directive';
+import { FooterComponent } from './footer/footer.component';
 
 const jwtOptions = {
   tokenGetter: () => localStorage.getItem('token'),
@@ -35,6 +36,7 @@ const jwtOptions = {
     WelcomepageComponent,
     ConfirmEmailComponent,
     FadeBackgroundDirective,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
