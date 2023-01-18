@@ -94,6 +94,17 @@ ul {
   color: #041836;
 }
 
+.ctn-log {
+  padding: 8px 15px;
+  border-radius: 30px;
+}
+
+.ctn-log:hover {
+  cursor: pointer;
+  background-color: rgba(240, 236, 238, 0.8);
+  color: #041836;
+}
+
 .ctn:hover {
   cursor: pointer;
 }

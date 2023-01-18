@@ -4,7 +4,6 @@ spring:
     port: 1025
     username: hello
     password: hello
-
     properties:
       mail:
         smtp:
@@ -16,6 +15,7 @@ spring:
           connectiontimeout: 5000
           timeout: 3000
           writetimeout: 5000
+
   mvc:
     converters:
       preferred-json-mapper: jackson
