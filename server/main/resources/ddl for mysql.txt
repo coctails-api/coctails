@@ -1,0 +1,149 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema massage
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema massage
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `massage` DEFAULT CHARACTER SET utf8 ;
+USE `massage` ;
+
+-- -----------------------------------------------------
+-- Table `massage`.`role`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `massage`.`role` (
+  `idroles` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idroles`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `massage`.`user`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `massage`.`user` (
+  `iduser` INT NOT NULL AUTO_INCREMENT,
+  `login` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  `phone` VARCHAR(45) NOT NULL,
+  `role_idroles` INT NOT NULL,
+  PRIMARY KEY (`iduser`),
+  INDEX `fk_user_role1_idx` (`role_idroles` ASC) VISIBLE,
+  CONSTRAINT `fk_user_role1`
+    FOREIGN KEY (`role_idroles`)
+    REFERENCES `massage`.`role` (`idroles`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `massage`.`category`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `massage`.`category` (
+  `idcategory` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NULL,
+  PRIMARY KEY (`idcategory`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `massage`.`label`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `massage`.`label` (
+  `idlabel` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(20) NULL,
+  `content` VARCHAR(45) NULL,
+  PRIMARY KEY (`idlabel`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `massage`.`offer`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `massage`.`offer` (
+  `idoffer` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(60) NOT NULL,
+  `content` VARCHAR(10000) NOT NULL,
+  `price` FLOAT NULL,
+  `photo` VARCHAR(64) NULL,
+  `category_idcategory` INT NOT NULL,
+  `label_idlabel` INT NOT NULL,
+  PRIMARY KEY (`idoffer`),
+  INDEX `fk_offer_category_idx` (`category_idcategory` ASC) VISIBLE,
+  INDEX `fk_offer_label1_idx` (`label_idlabel` ASC) VISIBLE,
+  CONSTRAINT `fk_offer_category`
+    FOREIGN KEY (`category_idcategory`)
+    REFERENCES `massage`.`category` (`idcategory`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_offer_label1`
+    FOREIGN KEY (`label_idlabel`)
+    REFERENCES `massage`.`label` (`idlabel`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `massage`.`contact`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `massage`.`contact` (
+  `idcontact` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `surname` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `phone` VARCHAR(45) NOT NULL,
+  `content` VARCHAR(45) NOT NULL,
+  `photo` VARCHAR(64) NULL,
+  PRIMARY KEY (`idcontact`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `massage`.`statslocal`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `massage`.`statslocal` (
+  `idstatslocal` INT NOT NULL AUTO_INCREMENT,
+  `cookie` VARCHAR(64) NOT NULL,
+  PRIMARY KEY (`idstatslocal`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `massage`.`interest`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `massage`.`interest` (
+  `idinterest` INT NOT NULL AUTO_INCREMENT,
+  `offer_idoffer` INT NOT NULL,
+  PRIMARY KEY (`idinterest`),
+  INDEX `fk_interest_offer1_idx` (`offer_idoffer` ASC) VISIBLE,
+  CONSTRAINT `fk_interest_offer1`
+    FOREIGN KEY (`offer_idoffer`)
+    REFERENCES `massage`.`offer` (`idoffer`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `massage`.`statsglobal`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `massage`.`statsglobal` (
+  `idstatsglobal` INT NOT NULL AUTO_INCREMENT,
+  `sum` VARCHAR(45) NOT NULL,
+  `date` DATE NOT NULL,
+  PRIMARY KEY (`idstatsglobal`))
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

@@ -1,0 +1,18 @@
+p{
+  text-align: center;
+  padding: 5%;
+  font-size: 30px;
+}
+
+
+.isValid{
+  color: red;
+}
+
+a:hover{
+  cursor: pointer;
+}
+
+/*.modal-dialog{*/
+/*  width: 750%;*/
+/*}*/
