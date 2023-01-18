@@ -15,7 +15,16 @@ spring:
           connectiontimeout: 5000
           timeout: 3000
           writetimeout: 5000
-
   mvc:
     converters:
       preferred-json-mapper: jackson
+
+app:
+  dataSource:
+    postgres:
+      port: 5432
+      username: localhost
+      password: postgres
+      host: localhost
+      databaseName: coctails
+      jdbc-url: jdbc:postgresql://${app.dataSource.postgres.host}:${app.dataSource.postgres.port}/${app.dataSource.postgres.databaseName}
