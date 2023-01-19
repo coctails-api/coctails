@@ -1,6 +1,6 @@
 
 ## Coctails-api 🍸
-| [Technologies](#-stack) | [Notes](#-some-notes) | [Roles](#-roles) | [External APIs](#-external-apis) | [Setting up a project](#-setting-up-a-project) | [App preview](#-app-preview) | [Envs](#-environment-variables) | [IMPORTANT!](#-important) |
+| [Technologies](#-stack) | [Notes](#-some-notes) | [Roles](#-roles) | [External APIs](#-External-APIs) | [Setting up a project](#-setting-up-a-project) | [App preview](#-app-preview) | [Envs](#-environment-variables) | [IMPORTANT!](#-important) |
 | ----------------------- | --------------------- | ---------------- | -------------------------------- | ---------------------------------------------- | ---------------------------- | ------------------------------- | ------------------------- |
 
 ## 🔧 Stack 
