@@ -1,0 +1,11 @@
+v1 (13.01.2023)
+- Configured Spring security (JWT, Endpoints for roles)
+- Configured CORS
+- Configured .properties, .yml
+- Configured MySQL
+- Basic tamplate for index & register, login modal
+
+v2 (20.01.2023
+- Configured email registration by email (check readmie for more details)
+- Migration to PostgreSQL and Docker
+- New layout for index
