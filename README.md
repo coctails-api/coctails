@@ -46,5 +46,5 @@ maildev
 > **Note** Check out `application.properties` and `application.yml` files
 
 ## IMPORTANT
-Application is being updated every week. Check change.log for more details what has been changes
+Application is being updated every week. Check change.log for more details what has been changes.
 It's not final version of readmie.
