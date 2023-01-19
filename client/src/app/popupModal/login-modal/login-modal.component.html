@@ -1,4 +1,4 @@
-<div class="modal-dialog" role="document">
+<div class="modal-dialog" role="document" style="margin: 0">
   <p>
     Logowanie
   </p>
@@ -14,9 +14,8 @@
           <input formControlName="password" type="password" name="password" class="form-control" id="password" placeholder="password" required>
         </div>
         <div class="modal-footer">
-          <!-- <button type="button" id="add-employee-form" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
           <button (click)="closeModal()" type="button" id="add-employee-form" class="btn btn-secondary" data-dismiss="modal">Anuluj</button>
-          <button type="submit" class="btn btn-primary">Zaloguj się</button>
+          <button type="submit" class="btn btn-primary" style="background-color: gold; border-color: white; color: #041836;">Zaloguj się</button>
         </div>
       </form>
     </div>

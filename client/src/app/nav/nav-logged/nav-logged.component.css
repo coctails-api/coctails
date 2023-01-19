@@ -10,7 +10,8 @@
   left: 0;
   right: 0;
   display: flex;
-  width: 100%;
+  margin: auto;
+  width: 90%;
   justify-content: space-between;
   padding: 20px;
   color: whitesmoke;
@@ -45,6 +46,17 @@ ul {
   background-color: #333;
   margin: 6px 0;
   transition: 0.4s;
+}
+
+.logo {
+  /*background-color: gold;*/
+  padding: 5px 15px;
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 30px;
+  margin-top: 15px;
 }
 
 @media only screen and (max-width: 850px) {

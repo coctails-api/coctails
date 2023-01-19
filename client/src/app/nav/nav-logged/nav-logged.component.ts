@@ -9,9 +9,12 @@ import {AuthService} from "../../service/auth.service";
 })
 export class NavLoggedComponent implements OnInit {
   isOpen = false;
+  isScrolled = false;
 
   constructor(public jwtHelper: JwtHelperService, public auth: AuthService) {
-
+    window.onscroll = () => {
+      this.isScrolled = window.pageYOffset > 0;
+    };
   }
 
   ngOnInit(): void {
