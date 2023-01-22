@@ -41,7 +41,7 @@ export class LoginModalComponent implements OnInit {
       localStorage.setItem('token', data.token);
       if (localStorage.getItem('token') !== null) {
         this.closeModal();
-        this.routerService.routeToDashboard();
+        this.routerService.routeToIndex();
       } else {
         alert("CHUJA NIE ZALOGUJESZ SIE BEDZIESZ SIE Z TYM JEBAC CALE ZYCIE");
       }

@@ -11,13 +11,13 @@
 /*CONTENT*/
 
 .events h1 {
-  color: #041836
+  color: #041836;
 }
 
 header {
   width:  100vw;
   height: 100vh;
-  background-image: url("../../assets/img/nm1.jpeg");
+  background-image: url("../../assets/img/nmtest.png");
   background-position: bottom;
   background-size: cover;
   display: flex;
@@ -53,12 +53,18 @@ header {
   padding: 8px 15px;
   background: gold;
   border-radius: 30px;
-  color: whitesmoke;
+  color: #041836;
+  text-decoration: none;
+}
+
+.ctn:hover {
+  padding: 10px 17px;
 }
 
 a {
   text-decoration: none;
 }
+
 
 .content-row img{
   margin: 15px 15px;
@@ -119,4 +125,7 @@ p {
   padding: 0 40px;
 }
 
-
+.col-content p {
+  text-align: center;
+  color: #041836;
+}

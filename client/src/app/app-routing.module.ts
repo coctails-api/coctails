@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {DashboardComponent} from "./dashboard/dashboard.component";
 import {AdminGuard} from "./admin-guard.service";
 import {ConfirmEmailComponent} from "./confirm-email/confirm-email.component";
-import {IndexComponent} from "./index/index.component";
+import {IndexComponent} from "./aaapages/index/index.component";
+import {DashboardComponent} from "./aaapages/dashboard/dashboard.component";
 
 const routes: Routes = [
   { path: '', component: IndexComponent, pathMatch: 'full'},

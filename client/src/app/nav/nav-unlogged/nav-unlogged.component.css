@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+.scrolled {
+  background-color: #041836;;
+  transition: background-color 0.5s ease;
+}
+
 /*NAVBAR*/
 .navbar-content {
   position: absolute;
@@ -19,12 +24,19 @@
 
 ul {
   list-style: none;
+}
 
+.ctn{
+  padding: 8px 15px;
+  background: gold;
+  border-radius: 30px;
+  color: #041836;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .nav-links li {
@@ -48,6 +60,11 @@ ul {
   transition: 0.4s;
 }
 
+.logo {
+  /*background-color: gold;*/
+  padding: 5px 15px;
+  cursor: pointer;
+}
 
 
 @media only screen and (max-width: 850px) {
@@ -61,6 +78,7 @@ ul {
   }
 
   .logo {
+    margin: 0 10px;
     position: absolute;
     top: 30px;
     left: 30px;
@@ -86,12 +104,9 @@ ul {
     margin-top: 0;
   }
 }
-
-.ctn{
-  padding: 8px 15px;
-  background: gold;
-  border-radius: 30px;
-  color: #041836;
+h1 {
+  font-size: 30px;
+  margin-top: 15px;
 }
 
 .ctn-log {

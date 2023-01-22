@@ -11,7 +11,6 @@ import {LoginModalComponent} from "../../popupModal/login-modal/login-modal.comp
 export class NavUnloggedComponent implements OnInit {
   isOpen = false;
 
-
   constructor(public dialog: MatDialog) {
   }
 

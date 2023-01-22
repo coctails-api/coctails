@@ -17,16 +17,16 @@
 <!--</nav>-->
 
 <nav class="navbar-content">
-  <h1 class="logo">coctails-api</h1>
+  <h1 routerLink="" class="logo" >coctails-api</h1>
   <ul class="nav-links" [ngClass]="{'mobile-menu': isOpen}">
     <li class="ctn-log">page1</li>
     <li class="ctn-log">page2</li>
     <li class="ctn-log">page3</li>
     <li class="ctn-log">page4</li>
-    <li class="ctn-log" (click)="onOpenModalRegister()">
+    <li class="ctn-log"  (click)="onOpenModalLogin()">
       Zaloguj się
     </li>
-    <li class="ctn" (click)="onOpenModalLogin()">
+    <li class="ctn" style="background-color: gold; border-color: white;" (click)="onOpenModalRegister()">
       Rejestracja
     </li>
   </ul>

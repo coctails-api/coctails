@@ -13,6 +13,24 @@ a:hover{
   cursor: pointer;
 }
 
+. modal-footer button:hover {
+  cursor: pointer;
+}
+
+.btn-register {
+  background: gold;
+  padding: 8px 15px;
+  border-radius: 5px;
+  color: #041836;
+}
+
+.btn-login {
+  background: rgba(228, 228, 228, 0.8);
+  padding: 8px 15px;
+  border-radius: 5px;
+  color: #041836;
+}
+
 /*.modal-dialog{*/
 /*  width: 750%;*/
 /*}*/
