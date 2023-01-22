@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
-import {RegisterModalComponent} from "../popupModal/register-modal/register-modal.component";
-import {LoginModalComponent} from "../popupModal/login-modal/login-modal.component";
-import {AuthenticationService} from "../service/authentication.service";
+import {AuthenticationService} from "../../service/authentication.service";
 
 @Component({
   selector: 'app-index',

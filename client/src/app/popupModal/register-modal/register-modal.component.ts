@@ -3,8 +3,6 @@ import {Observable} from "rxjs";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {User} from "../../classes/user";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
-import {UserFormService} from "../../classes/user-form.service";
-import {UserForm} from "../../classes/user-form";
 import {RegisterService} from "../../service/register.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {LoginModalComponent} from "../login-modal/login-modal.component";
