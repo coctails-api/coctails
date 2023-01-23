@@ -1,4 +1,4 @@
-package com.coctails.controller.token;
+package com.coctails.entity;
 
 import com.coctails.entity.User;
 import lombok.Getter;
@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Entity
 @Table(name = "confirmation_token")
-public class ConfirmationToken {
+public class ConfirmationTokenEntity {
     @Id
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE
@@ -33,7 +33,7 @@ public class ConfirmationToken {
     @JoinColumn
     private User user;
 
-    public ConfirmationToken(String token, LocalDateTime created, LocalDateTime expired, User user) {
+    public ConfirmationTokenEntity(String token, LocalDateTime created, LocalDateTime expired, User user) {
         this.token = token;
         this.created = created;
         this.expired = expired;

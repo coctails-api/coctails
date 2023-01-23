@@ -24,4 +24,8 @@ export class RegisterService {
   public confirmEmail(email:string): Observable<any>{
     return this.http.get<any>(`${this.apiServerUrl}/user/confirm?token=${email}`);
   }
+
+  public generateNewToken(token: string): Observable<any>{
+    return this.http.put<any>(`${this.apiServerUrl}/user/generateNewToken`, token);
+  }
 }

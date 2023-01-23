@@ -1,14 +1,16 @@
-package com.coctails.controller.token;
+package com.coctails.controller;
 
+import com.coctails.service.EmailService;
 import com.coctails.service.UserService;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "${api.client}")
 @RestController
-@Slf4j
+@Log4j2
 @RequestMapping("/user")
 public class EmailController {
     @Autowired
@@ -20,9 +22,10 @@ public class EmailController {
         return userService.confirmToken(token);
     }
 
-    @GetMapping(path = "/confirmx")
-    public ResponseEntity<String> confirmx() {
-        log.info("confirm");
-        return ResponseEntity.ok("dziala");
+    @PutMapping(path = "/generateNewToken/{token}")
+    public ResponseEntity<?> generateNewToken(@PathVariable("token") String token) {
+        log.info("/confirm/token");
+        userService.generateNewToken(token);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

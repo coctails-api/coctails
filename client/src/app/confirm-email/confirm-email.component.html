@@ -1,1 +1,5 @@
 Potwierdzenie e-maila:  {{info}}
+<br>
+<div *ngIf="err.length>2">
+  <a (click)="generateNewToken()">Wygeneruj nowy token</a>
+</div>

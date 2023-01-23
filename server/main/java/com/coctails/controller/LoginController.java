@@ -4,7 +4,7 @@ import com.coctails.config.JwtTokenUtil;
 import com.coctails.entity.JwtResponse;
 import com.coctails.entity.User;
 import com.coctails.service.JwtUserDetailsService;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "${api.client}")
 @RestController
 @RequestMapping("/user")
-@Slf4j
+@Log4j2
 public class LoginController {
     @Autowired
     private AuthenticationManager authenticationManager;
