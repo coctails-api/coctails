@@ -41,6 +41,8 @@ maildev
 
 ## 🗞️ App preview
 ![Zrzut ekranu 2023-01-19 o 10 44 42](https://user-images.githubusercontent.com/75738398/213409205-474c34d3-941e-4be5-a44d-3bc471413eb3.png)
+<img width="1433" alt="Zrzut ekranu 2023-01-23 o 21 15 15" src="https://user-images.githubusercontent.com/75738398/214140731-cd20adbd-0fe6-460d-b0ff-c43b5b98994a.png">
+
 
 ## 🔒 Environment variables
 > **Note** Check out `application.properties` and `application.yml` files
