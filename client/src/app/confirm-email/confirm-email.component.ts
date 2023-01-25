@@ -44,7 +44,7 @@ export class ConfirmEmailComponent implements OnInit {
     console.log(this.token)
     this.registerService.generateNewToken(this.token).subscribe(
       response => {
-        console.log(response);
+        this.info = response;
       }
     )
   }

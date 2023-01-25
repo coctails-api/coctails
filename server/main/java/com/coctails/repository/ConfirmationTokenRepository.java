@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface ConfirmationTokenRepository extends JpaRepository<ConfirmationTokenEntity, Integer> {
-    Optional<ConfirmationTokenEntity> findByToken(String email);
+    Optional<ConfirmationTokenEntity> findByToken(String token);
 }

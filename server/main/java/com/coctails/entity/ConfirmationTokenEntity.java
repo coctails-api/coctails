@@ -23,8 +23,7 @@ public class ConfirmationTokenEntity {
     @Column(name = "token",
             nullable = false)
     private String token;
-    @Column(name = "created",
-            nullable = false)
+    @Column(name = "created", nullable = false)
     private LocalDateTime created;
     @Column(name = "expired")
     private LocalDateTime expired;

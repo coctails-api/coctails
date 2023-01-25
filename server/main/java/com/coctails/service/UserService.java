@@ -59,6 +59,7 @@ public class UserService {
     }
 
     public void generateNewToken(String token){
+        log.info("Nowy token: " + token);
         ConfirmationTokenEntity confirmationTokenEntity = confirmationTokenService.generateNewToken(token);
         tokenService.save(confirmationTokenEntity);
         sendEmail(confirmationTokenEntity, confirmationTokenService.getToken(token).get().getUser());
@@ -92,6 +93,7 @@ public class UserService {
 
     @Transactional
     public ResponseEntity<?> confirmToken(String token){
+        log.info("Confirm token: " + token);
         ConfirmationTokenEntity confirmationTokenEntity = confirmationTokenService
                 .getToken(token)
                 .orElseThrow(() ->

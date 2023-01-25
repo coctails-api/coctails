@@ -3,6 +3,7 @@ package com.coctails.service;
 import com.coctails.entity.ConfirmationTokenEntity;
 import com.coctails.repository.ConfirmationTokenRepository;
 import lombok.AllArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -12,6 +13,7 @@ import java.util.UUID;
 
 @Service
 @AllArgsConstructor
+@Log4j2
 public class ConfirmationTokenService {
     private final ConfirmationTokenRepository confirmationTokenRepository;
 
@@ -31,6 +33,8 @@ public class ConfirmationTokenService {
     }
 
     public ConfirmationTokenEntity generateNewToken(String token) {
+        log.info("Generate new token" + token);
+        log.info(getToken(token).get());
         ConfirmationTokenEntity confirmationToken = new ConfirmationTokenEntity(
                 UUID.randomUUID().toString(),
                 LocalDateTime.now(),

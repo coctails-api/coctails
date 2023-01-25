@@ -1,7 +1,11 @@
 package com.coctails.controller;
 
+import com.coctails.regex.Adapter;
 import com.coctails.service.EmailService;
 import com.coctails.service.UserService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,9 +27,9 @@ public class EmailController {
     }
 
     @PutMapping(path = "/generateNewToken")
-    public ResponseEntity<?> generateNewToken(@RequestBody Object object) {
-        log.info("/confirm/token" + object.toString());
-//        userService.generateNewToken(token);
+    public ResponseEntity<?> generateNewToken(@RequestBody Object object) throws JsonProcessingException { //Object object -> String token
+        String token = object.toString();
+        userService.generateNewToken(Adapter.substringSingleVariable(token));
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }
