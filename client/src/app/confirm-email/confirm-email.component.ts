@@ -12,9 +12,11 @@ import {HttpErrorResponse} from "@angular/common/http";
 export class ConfirmEmailComponent implements OnInit {
   token: string;
   info: string;
+  err;
   constructor(private route: ActivatedRoute, private registerService: RegisterService) {
     this.token = '';
     this.info = '';
+    this.err = 1;
   }
 
   ngOnInit() {
@@ -32,8 +34,18 @@ export class ConfirmEmailComponent implements OnInit {
         this.info = data;
       },
       error => {
-        console.error(error);
+        this.err = error.status;
+        console.error(error.error);
       }
     );
+  }
+
+  generateNewToken(): void{
+    console.log(this.token)
+    this.registerService.generateNewToken(this.token).subscribe(
+      response => {
+        this.info = response;
+      }
+    )
   }
 }

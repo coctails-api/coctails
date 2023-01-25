@@ -1,8 +1,7 @@
 package com.coctails.service;
 
-import com.coctails.controller.token.ConfirmationToken;
-import com.coctails.controller.token.ConfirmationTokenService;
-import com.coctails.email.EmailSender;
+import com.coctails.entity.ConfirmationTokenEntity;
+import com.coctails.interfaces.EmailSender;
 import com.coctails.entity.Role;
 import com.coctails.entity.User;
 import com.coctails.regex.Validator;
@@ -13,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
@@ -41,17 +41,28 @@ public class UserService {
 
     public void addUser(User user) {
         userFormat(user);
-        ConfirmationToken confirmationToken= new ConfirmationToken(
+        ConfirmationTokenEntity confirmationTokenEntity = new ConfirmationTokenEntity(
                 UUID.randomUUID().toString(),
                 LocalDateTime.now(),
                 LocalDateTime.now().plusMinutes(15),
                 user
         );
 
-        tokenService.save(confirmationToken);
+        tokenService.save(confirmationTokenEntity);
         save(user);
-        String link = "http://localhost:4200/user/confirm?token=" +confirmationToken.getToken();
+        sendEmail(confirmationTokenEntity, user);
+    }
+
+    public void sendEmail(ConfirmationTokenEntity confirmationTokenEntity, User user){
+        String link = "http://localhost:4200/user/confirm?token=" + confirmationTokenEntity.getToken();
         emailSender.send(user.getEmail(), buildEmail(user.getEmail(),link));
+    }
+
+    public void generateNewToken(String token){
+        log.info("Nowy token: " + token);
+        ConfirmationTokenEntity confirmationTokenEntity = confirmationTokenService.generateNewToken(token);
+        tokenService.save(confirmationTokenEntity);
+        sendEmail(confirmationTokenEntity, confirmationTokenService.getToken(token).get().getUser());
     }
 
     private void userFormat(User user) {
@@ -73,35 +84,36 @@ public class UserService {
     }
 
     public void allowAccess(String token){
-        ConfirmationToken confirmationToken = tokenService.getToken(token).get();
-        log.info("Token: " + userRepository.findById(confirmationToken.getUser().getIduser()).get());
-        User user = userRepository.findById(confirmationToken.getUser().getIduser()).get();
+        ConfirmationTokenEntity confirmationTokenEntity = tokenService.getToken(token).get();
+        log.info("Token: " + userRepository.findById(confirmationTokenEntity.getUser().getIduser()).get());
+        User user = userRepository.findById(confirmationTokenEntity.getUser().getIduser()).get();
         user.setActive(1);
         save(user);
     }
 
     @Transactional
-    public String confirmToken(String token){
-        ConfirmationToken confirmationToken = confirmationTokenService
+    public ResponseEntity<?> confirmToken(String token){
+        log.info("Confirm token: " + token);
+        ConfirmationTokenEntity confirmationTokenEntity = confirmationTokenService
                 .getToken(token)
                 .orElseThrow(() ->
-                        new IllegalStateException("token not found"));
+                        new ResponseStatusException(HttpStatus.valueOf(404),"Token nie istnieje"));
         log.info("jest token");
-        if (confirmationToken.getConfirmed() != null) {
+        if (confirmationTokenEntity.getConfirmed() != null) {
 //            throw new IllegalStateException("email already confirmed");
-            return "Email zostal potwierdzony";
+            throw new ResponseStatusException(HttpStatus.valueOf(401),"Email zostal potwierdzony");
         }
 
-        LocalDateTime expired = confirmationToken.getExpired();
+        LocalDateTime expired = confirmationTokenEntity.getExpired();
 
         if (expired.isBefore(LocalDateTime.now())) {
-            return "Czas na potwierdzenie minal. Sprobuj ponownie";
-//            throw new IllegalStateException("token expired");
+//            return "Czas na potwierdzenie minal. Sprobuj ponownie";
+            throw new ResponseStatusException(HttpStatus.valueOf(410),"Czas na potwierdzenie minal. Sprobuj ponownie");
         }
 
         confirmationTokenService.setConfirmed(token);
         allowAccess(token);
-        return "Potwierdzono email";
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     private String buildEmail(String name, String link) {
