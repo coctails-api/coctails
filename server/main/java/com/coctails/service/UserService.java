@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
@@ -90,27 +91,27 @@ public class UserService {
     }
 
     @Transactional
-    public String confirmToken(String token){
+    public ResponseEntity<?> confirmToken(String token){
         ConfirmationTokenEntity confirmationTokenEntity = confirmationTokenService
                 .getToken(token)
                 .orElseThrow(() ->
-                        new IllegalStateException("Token nie istnieje"));
+                        new ResponseStatusException(HttpStatus.valueOf(404),"Token nie istnieje"));
         log.info("jest token");
         if (confirmationTokenEntity.getConfirmed() != null) {
 //            throw new IllegalStateException("email already confirmed");
-            throw new IllegalStateException("Email zostal potwierdzony");
+            throw new ResponseStatusException(HttpStatus.valueOf(401),"Email zostal potwierdzony");
         }
 
         LocalDateTime expired = confirmationTokenEntity.getExpired();
 
         if (expired.isBefore(LocalDateTime.now())) {
 //            return "Czas na potwierdzenie minal. Sprobuj ponownie";
-            throw new IllegalStateException("Czas na potwierdzenie minal. Sprobuj ponownie");
+            throw new ResponseStatusException(HttpStatus.valueOf(410),"Czas na potwierdzenie minal. Sprobuj ponownie");
         }
 
         confirmationTokenService.setConfirmed(token);
         allowAccess(token);
-        return "Potwierdzono email";
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     private String buildEmail(String name, String link) {

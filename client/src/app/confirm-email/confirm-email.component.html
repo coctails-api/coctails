@@ -1,5 +1,17 @@
-Potwierdzenie e-maila:  {{info}}
-<br>
-<div *ngIf="err.length>2">
-  <a (click)="generateNewToken()">Wygeneruj nowy token</a>
+<div class="email">
+  <div>
+    Coctails-api
+  </div>
+  <div *ngIf="info.toString() != null">
+    {{info}}
+  </div>
+  <div *ngIf="err == 401">
+    Email został potwierdzony
+  </div>
+  <div *ngIf="err == 404">
+    Nie znaleziono takiego tokenu
+  </div>
+  <div *ngIf="err == 410">
+    <a (click)="generateNewToken()" style="color: cadetblue">Kliknij, by wygenerować nowy link aktywacyjny</a>
+  </div>
 </div>
