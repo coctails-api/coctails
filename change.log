@@ -5,7 +5,13 @@ v1 (13.01.2023)
 - Configured MySQL
 - Basic tamplate for index & register, login modal
 
-v2 (20.01.2023
+v2 (20.01.2023)
 - Configured email registration by email (check readmie for more details)
 - Migration to PostgreSQL and Docker
 - New layout for index
+
+v3 (27.01.2023)
+- Admin panel to manage website
+- Lazy loading for admin panel
+- Manage discount codes
+- Generating new confirmation link
