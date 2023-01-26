@@ -1,9 +1,15 @@
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS confimation_token;
 DROP TABLE IF EXISTS hibernate_sequence;
+DROP TABLE IF EXISTS discount;
 
-CREATE TABLE users
-(
+CREATE TABLE discount (
+    id          int auto_increment PRIMARY KEY NOT NULL,
+    name        VARCHAR(50) NOT NULL UNIQUE,
+    discount    int NOT NULL
+);
+
+CREATE TABLE users(
     iduser   int auto_increment PRIMARY KEY NOT NULL,
     email    VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(64) NOT NULL,

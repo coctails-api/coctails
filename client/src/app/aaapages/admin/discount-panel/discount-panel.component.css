@@ -1,0 +1,10 @@
+.disc-container {
+  background-color: antiquewhite;
+  width: 50%;
+  height: 500px;
+  margin: auto;
+}
+
+.custom-input {
+  align-items: center;
+}
