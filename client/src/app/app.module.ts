@@ -14,11 +14,11 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatButtonModule} from "@angular/material/button";
 import {JWT_OPTIONS, JwtHelperService} from "@auth0/angular-jwt";
 import { WelcomepageComponent } from './welcomepage/welcomepage.component';
-import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
 import { FadeBackgroundDirective } from './welcomepage/fade-background.directive';
 import { FooterComponent } from './footer/footer.component';
 import {DashboardComponent} from "./aaapages/dashboard/dashboard.component";
 import {IndexComponent} from "./aaapages/index/index.component";
+import {ConfirmEmailComponent} from "./aaapages/confirm-email/confirm-email.component";
 
 const jwtOptions = {
   tokenGetter: () => localStorage.getItem('token'),

@@ -184,4 +184,9 @@ public class UserService {
                 "\n" +
                 "</div></div>";
     }
+
+    public void ifUserExists(String email){
+        if(userRepository.findByEmail(email).getEmail().isBlank())
+            throw new ResponseStatusException(HttpStatus.valueOf(410),"Ten email został już zarejestrowany.");
+    }
 }
