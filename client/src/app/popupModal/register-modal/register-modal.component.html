@@ -9,7 +9,7 @@
     </div>
     <div class="modal-content" *ngIf="registered==false">
       <div class="modal-body">
-        <form [formGroup]="formGroup"  (ngSubmit)="registerUser()">
+        <form [formGroup]="formGroup" (ngSubmit)="registerUser()">
           <div class="form-group">
             <label for="email">E-mail</label>
             <input formControlName="email" type="email" name="email" class="form-control" id="email" placeholder="Email" required>

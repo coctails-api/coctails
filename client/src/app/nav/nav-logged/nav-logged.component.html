@@ -20,6 +20,10 @@
 <nav class="navbar-content">
   <h1 routerLink="" class="logo">coctails-api</h1>
   <ul class="nav-links" [ngClass]="{'mobile-menu': isOpen}">
+    <li *ngIf="auth.isAdmin()" routerLink="/admin" class="ctn-log">Panel</li>
+    <li class="ctn-log">page2</li>
+    <li class="ctn-log">page3</li>
+    <li class="ctn-log">page4</li>
     <li *ngIf="auth.isUser()">
       USER EMAIL
     </li>

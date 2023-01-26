@@ -13,8 +13,10 @@ import {HttpErrorResponse} from "@angular/common/http";
 })
 export class LoginModalComponent implements OnInit {
   formGroup: FormGroup;
+  err;
 
   constructor(public dialog: MatDialog, private authenticateService: AuthenticationService, private routerService: RouterService) {
+    this.err = 1;
     this.formGroup = new FormGroup({
       email: new FormControl('', [
         Validators.required,
@@ -46,8 +48,7 @@ export class LoginModalComponent implements OnInit {
         alert("CHUJA NIE ZALOGUJESZ SIE BEDZIESZ SIE Z TYM JEBAC CALE ZYCIE");
       }
     }, (error: HttpErrorResponse) => {
-      console.error("Bad response from remote server");
-      console.error(error);
+      this.err = error.status;
     });
   }
 

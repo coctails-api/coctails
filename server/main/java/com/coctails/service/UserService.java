@@ -35,7 +35,7 @@ public class UserService {
 
     @Transactional
     public void save(User user) {
-        user.setRole(Role.ADMIN);
+        user.setRole(Role.USER);
         userRepository.save(user);
     }
 
@@ -183,5 +183,10 @@ public class UserService {
                 "  </tbody></table><div class=\"yj6qo\"></div><div class=\"adL\">\n" +
                 "\n" +
                 "</div></div>";
+    }
+
+    public void ifUserExists(String email){
+        if(userRepository.findByEmail(email).getEmail().isBlank())
+            throw new ResponseStatusException(HttpStatus.valueOf(410),"Ten email został już zarejestrowany.");
     }
 }

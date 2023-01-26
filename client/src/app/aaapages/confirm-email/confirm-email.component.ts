@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {Observable} from "rxjs";
-import {RegisterService} from "../service/register.service";
-import {HttpErrorResponse} from "@angular/common/http";
+import {RegisterService} from "../../service/register.service";
 
 @Component({
   selector: 'app-confirm-email',
