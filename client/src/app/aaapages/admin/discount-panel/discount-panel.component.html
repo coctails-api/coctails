@@ -2,21 +2,25 @@
   <div class="form-group">
     <form [formGroup]="formGroup" (ngSubmit)="addDiscount()">
       <input formControlName="name" type="text" name="name" class="form-control col-5" id="name" placeholder="name" required>
-      <div class="isValid" *ngIf="formGroup.controls['name'].invalid && submitted != false">
-        Podano zla nazwe
-      </div>
       <input formControlName="discount" type="text" name="discount" class="form-control col-5" id="discount" placeholder="discount" required>
-      <div class="isValid" *ngIf="formGroup.controls['discount'].invalid && submitted != false">
-        Dostepne sa tylko cyfry
+      <div style="color: green;" *ngIf="info.length>1">
+        {{info}}
       </div>
       <button type="submit" class="btn btn-primary" style="background-color: gold; border-color: white; color: #041836;">Dodaj kod rabatowy</button>
     </form>
   </div>
   <div>
-    <div *ngFor="let discount of discountList">
-      <form action="">
-        <p>{{ discount.name }} {{ discount.discount}} <button (click)="deleteDiscount(discount.id ? discount.id : null)" class="btn btn-danger" data-dismiss="modal">Yes</button></p>
-      </form>
-    </div>
+    <table>
+      <tr>
+        <td>Nazwa</td>
+        <td>Przecena</td>
+        <td>Usuń kod</td>
+      </tr>
+      <tr *ngFor="let discount of discountList">
+        <td>{{ discount.name }}</td>
+        <td>{{ discount.discount}}</td>
+        <td><p><a (click)="deleteDiscount(discount.id)" class="btn btn-danger" data-dismiss="modal">Usuń kod</a></p></td>
+      </tr>
+    </table>
   </div>
 </div>

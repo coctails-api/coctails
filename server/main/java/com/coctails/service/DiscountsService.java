@@ -22,7 +22,7 @@ public class DiscountsService {
 
     @Transactional
     public void delete(Integer id){
-        discountsRepository.deleteDiscountsById(id);
+        discountsRepository.delete(discountsRepository.findById(id).get());
     }
 
     public boolean nameExists(String name){

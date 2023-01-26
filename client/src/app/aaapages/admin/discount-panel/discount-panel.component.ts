@@ -12,6 +12,7 @@ import {DiscountService} from "../../../service/discount.service";
 export class DiscountPanelComponent implements OnInit {
   formGroup: FormGroup;
   conflict = "";
+  info = "";
   submitted = false;
   public discountList: Discount[] = [];
 
@@ -46,8 +47,9 @@ export class DiscountPanelComponent implements OnInit {
     this.discountService.addDiscount(discount).subscribe((response: any) => {
       this.formGroup.reset();
       this.getDiscounts();
+      this.info = "Dodano promocję"
     }, (error: HttpErrorResponse) => {
-      {{error.status == 409 ? this.conflict = "Email już istnieje" : this.conflict = ""}}
+      {{error.status == 409 ? this.conflict = "cos sie mocno zepsulo" : this.conflict = ""}}
     });
   }
 

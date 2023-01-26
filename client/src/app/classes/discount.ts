@@ -1,5 +1,5 @@
 export class Discount {
-  id: number | null;
+  id: number = 0;
   name: string;
   discount: bigint;
 

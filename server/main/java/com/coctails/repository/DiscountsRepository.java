@@ -8,6 +8,5 @@ import java.util.Optional;
 
 public interface DiscountsRepository extends JpaRepository<Discounts, Integer> {
     Optional<Discounts> findByName(String nameOfDiscount);
-
     void deleteDiscountsById(Integer id);
 }

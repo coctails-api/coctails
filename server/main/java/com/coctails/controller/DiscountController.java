@@ -36,8 +36,9 @@ public class DiscountController {
         return new ResponseEntity<>(discounts, HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/discounts")
+    @DeleteMapping(value = "/discounts/{id}")
     public ResponseEntity<?> deleteDiscount(@PathVariable Integer id){
+        log.info("Id do usuniecia: " + id);
         discountsService.deleteDiscount(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
