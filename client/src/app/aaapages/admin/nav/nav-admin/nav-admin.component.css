@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: gold;
 }
 
 .scrolled {
@@ -11,15 +12,24 @@
 
 /*NAVBAR*/
 .navbar-content {
-  position: absolute;
-  left: 0;
-  right: 0;
+  /*position: absolute;*/
   display: flex;
   margin: auto;
-  width: 90%;
+  width: 100%;
   justify-content: space-between;
-  padding: 20px;
+  /*padding: 20px 40px;*/
   color: whitesmoke;
+}
+
+.list {
+  position: absolute;
+  transform: translateY(0);
+  transition: transform 0.5s;
+  padding-top: 5px;
+}
+
+.list[hidden] {
+  transform: translateY(-100%);
 }
 
 ul {
@@ -111,7 +121,7 @@ h1 {
 
 .ctn-log {
   padding: 8px 15px;
-  border-radius: 30px;
+  border-radius: 5px;
 }
 
 .ctn-log:hover {

@@ -1,6 +1,7 @@
 package com.coctails.service;
 
 import com.coctails.repository.UserRepository;
+import lombok.extern.log4j.Log4j2;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
 @Service
-@Slf4j
+@Log4j2
 public class JwtUserDetailsService implements UserDetailsService {
     @Autowired
     private UserRepository userRepository;

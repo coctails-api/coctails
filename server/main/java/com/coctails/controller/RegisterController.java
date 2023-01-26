@@ -22,7 +22,7 @@ public class RegisterController {
     @Autowired
     private ConfirmationTokenService confirmationTokenService;
 
-    @PostMapping("/register")
+    @PostMapping(value = "/register")
     public ResponseEntity<?> registerUser(@RequestBody User user, ModelMapper modelMapper) {
         log.info("Register user");
         if(userService.userExists(user.getEmail().toLowerCase()))

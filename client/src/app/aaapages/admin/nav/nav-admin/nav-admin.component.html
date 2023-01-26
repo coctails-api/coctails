@@ -1,0 +1,20 @@
+<nav class="navbar-content">
+  <h1 routerLink="" class="logo">coctails-api</h1>
+  <ul class="nav-links" [ngClass]="{'mobile-menu': isOpen}">
+    <li class="ctn-log" (mouseenter)="showSublist = true" (mouseleave)="showSublist = false">Dodaj
+      <ul class="list" *ngIf="showSublist">
+        <li class="ctn-log" routerLink="/admin/discounts">Dodaj kod rabatowy</li>
+        <li class="ctn-log">el2</li>
+        <li class="ctn-log">el3</li>
+      </ul>
+    </li>
+    <li class="ctn-log">page3</li>
+    <li class="ctn-log">page4</li>
+    <li class="ctn-log" routerLink="/admin">Panel</li>
+  </ul>
+  <div class="my-btn" (click)="toggleMenu()">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+  </div>
+</nav>

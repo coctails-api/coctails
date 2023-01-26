@@ -18,6 +18,7 @@ import { FadeBackgroundDirective } from './welcomepage/fade-background.directive
 import { FooterComponent } from './footer/footer.component';
 import {IndexComponent} from "./aaapages/index/index.component";
 import {ConfirmEmailComponent} from "./aaapages/confirm-email/confirm-email.component";
+import {MatMenuModule} from "@angular/material/menu";
 
 const jwtOptions = {
   tokenGetter: () => localStorage.getItem('token'),
@@ -41,11 +42,15 @@ const jwtOptions = {
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    MatMenuModule,
     MatButtonModule,
     MatDialogModule,
     HttpClientModule
   ],
-  providers: [JwtHelperService, {provide: JWT_OPTIONS, useValue:jwtOptions}],
+  providers: [JwtHelperService, {provide: JWT_OPTIONS, useValue: jwtOptions}],
+  exports: [
+    NavLoggedComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
