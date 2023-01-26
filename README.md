@@ -13,6 +13,8 @@
 At the moment in application we are able to:
 - Register and sign in (JWT token included)
 - Registration must be confirmed by email
+- Generate new confirmation code
+- Manage discount codes for orders
 
 ## 🔨 Roles
 - USER - default role (basic functions on the website)
@@ -46,6 +48,8 @@ maildev
 
 ## 🔒 Environment variables
 > **Note** Check out `application.properties` and `application.yml` files
+
+> **Note** Lazy loading for admin panel
 
 ## IMPORTANT
 Application is being updated every week. Check change.log for more details what has been changes.
