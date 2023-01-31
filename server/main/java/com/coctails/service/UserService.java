@@ -57,6 +57,14 @@ public class UserService {
         sendEmail(confirmationTokenEntity, user);
     }
 
+    public void userNewPassword(String password, String token){
+        User user = tokenService.getToken(token).get().getUser();
+        if(user == null)
+            throw new IllegalStateException("error");
+        user.setPassword(passwordEncoder.encode(password));
+        save(user);
+    }
+
     public void generateNewEmailPassword(User user){
         ConfirmationTokenEntity confirmationTokenEntity = new ConfirmationTokenEntity(
                 UUID.randomUUID().toString(),

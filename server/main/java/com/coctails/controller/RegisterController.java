@@ -13,6 +13,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @CrossOrigin(origins = "${api.client}")
 @RequestMapping("/user")
 @RestController
@@ -48,8 +50,10 @@ public class RegisterController {
     }
 
     @PutMapping(value = "/newPassword")
-    public ResponseEntity<?> newPassword(@RequestParam("password") String password, @RequestParam("token") String token){
-        log.info(password + " " + token);
+    public ResponseEntity<?> newPassword(@RequestBody Map object){
+        String password = (String) object.get("password");
+        String token = (String) object.get("token");
+        userService.userNewPassword(password, token);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }
