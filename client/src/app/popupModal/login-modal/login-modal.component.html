@@ -13,6 +13,9 @@
           <label for="password">Hasło</label>
           <input formControlName="password" type="password" name="password" class="form-control" id="password" placeholder="password" required>
         </div>
+        <div class="form-group">
+          <a (click)="newPassword()" for="password">Nie pamiętasz hasła?</a>
+        </div>
         <div class="modal-footer">
           <button (click)="closeModal()" type="button" id="add-employee-form" class="btn btn-secondary" data-dismiss="modal">Anuluj</button>
           <button type="submit" class="btn btn-primary" style="background-color: gold; border-color: white; color: #041836;">Zaloguj się</button>

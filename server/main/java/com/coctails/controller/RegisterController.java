@@ -1,5 +1,6 @@
 package com.coctails.controller;
 
+import com.coctails.dto.UserDTO;
 import com.coctails.service.ConfirmationTokenService;
 import com.coctails.entity.User;
 import com.coctails.regex.StaticVariables;
@@ -12,6 +13,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @CrossOrigin(origins = "${api.client}")
 @RequestMapping("/user")
 @RestController
@@ -19,8 +22,6 @@ import org.springframework.web.bind.annotation.*;
 public class RegisterController {
     @Autowired
     private UserService userService;
-    @Autowired
-    private ConfirmationTokenService confirmationTokenService;
 
     @PostMapping(value = "/register")
     public ResponseEntity<?> registerUser(@RequestBody User user, ModelMapper modelMapper) {
@@ -31,6 +32,28 @@ public class RegisterController {
         modelMapper.map(user, newUser);
         userService.validation(user);
         userService.addUser(newUser);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/generateNewEmailPassword")
+    public ResponseEntity<?> generateNewEmailPassword(@RequestBody User userE) {
+        User user = userService.findUserByEmail(userE.getEmail());
+        log.info("generateNewEmailPassword: " + user.getEmail() + user.getPassword());
+        userService.generateNewEmailPassword(user);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/generateNewPassword")
+    public ResponseEntity<?> generateNewPassword(@RequestParam("token") String token){
+        log.info("generate new password: " + token);
+        return userService.confirmToken(token);
+    }
+
+    @PutMapping(value = "/newPassword")
+    public ResponseEntity<?> newPassword(@RequestBody Map object){
+        String password = (String) object.get("password");
+        String token = (String) object.get("token");
+        userService.userNewPassword(password, token);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

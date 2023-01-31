@@ -5,6 +5,7 @@ import {AuthenticationService} from "../../service/authentication.service";
 import {User} from "../../classes/user";
 import {RouterService} from "../../service/router.service";
 import {HttpErrorResponse} from "@angular/common/http";
+import {RegeneratePasswordComponent} from "../regenerate-password/regenerate-password.component";
 
 @Component({
   selector: 'app-login-modal',
@@ -54,5 +55,10 @@ export class LoginModalComponent implements OnInit {
 
   closeModal() : void {
     this.dialog.closeAll();
+  }
+
+  newPassword(): void {
+    this.dialog.closeAll();
+    this.dialog.open(RegeneratePasswordComponent);
   }
 }
