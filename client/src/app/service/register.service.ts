@@ -21,7 +21,15 @@ export class RegisterService {
   }
 
   public generateNewToken(token: string): Observable<any>{
-
     return this.http.put<any>(`${this.apiServerUrl}/user/generateNewToken`, JSON.stringify({token: token}), {headers: this.httpHeader.getHeader()});
+  }
+
+  public generateNewEmailPassword(user: User): Observable<any>{
+    return this.http.post<any>(`${this.apiServerUrl}/user/generateNewEmailPassword`, user);
+  }
+
+  public newPassowrd(password: string, token: string): Observable<any>{
+    alert(password + " " + token);
+    return this.http.put<any>(`${this.apiServerUrl}/user/newPassword`, {password, token});
   }
 }

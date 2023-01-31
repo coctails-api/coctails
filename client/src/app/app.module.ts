@@ -19,6 +19,8 @@ import { FooterComponent } from './footer/footer.component';
 import {IndexComponent} from "./aaapages/index/index.component";
 import {ConfirmEmailComponent} from "./aaapages/confirm-email/confirm-email.component";
 import {MatMenuModule} from "@angular/material/menu";
+import { RegeneratePasswordComponent } from './popupModal/regenerate-password/regenerate-password.component';
+import { NewPasswordComponent } from './aaapages/new-password/new-password.component';
 
 const jwtOptions = {
   tokenGetter: () => localStorage.getItem('token'),
@@ -36,6 +38,8 @@ const jwtOptions = {
     ConfirmEmailComponent,
     FadeBackgroundDirective,
     FooterComponent,
+    RegeneratePasswordComponent,
+    NewPasswordComponent,
   ],
   imports: [
     BrowserModule,
