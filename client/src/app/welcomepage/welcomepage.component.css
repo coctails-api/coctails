@@ -15,7 +15,7 @@
 }
 
 header {
-  width:  100vw;
+  width: 100vw;
   height: 100vh;
   background-image: url("../../assets/img/nmtest.png");
   background-position: bottom;
@@ -25,17 +25,17 @@ header {
   justify-content: center;
 }
 
-.header-content{
+.header-content {
   margin-bottom: 100px;
   color: whitesmoke;
   text-align: center;
 }
 
-.header-content h2{
+.header-content h2 {
   font-size: 4vmin;
 }
 
-.line{
+.line {
   width: 150px;
   height: 4px;
   background: gold;
@@ -43,13 +43,13 @@ header {
   border-radius: 5px;
 }
 
-.header-content h1{
+.header-content h1 {
   font-size: 6vmin;
   margin-top: 30px;
   margin-bottom: 30px;
 }
 
-.ctn{
+.ctn {
   padding: 8px 15px;
   background: gold;
   border-radius: 30px;
@@ -65,22 +65,20 @@ a {
   text-decoration: none;
 }
 
-
-.content-row img{
+.content-row img {
   margin: 15px 15px;
   max-width: 100%;
   height: 250px;
   padding: 0 20px;
 }
 
-.line{
+.line {
   width: 150px;
   height: 4px;
   background: gold;
   margin: 10px auto;
   border-radius: 5px;
 }
-
 
 section {
   width: 80%;
@@ -104,7 +102,7 @@ section {
   width: 90%;
 }
 
-.row-content .col-content{
+.row-content .col-content {
   display: flex;
   flex-direction: column;
   align-items: center;

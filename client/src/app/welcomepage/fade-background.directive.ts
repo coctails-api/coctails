@@ -1,7 +1,12 @@
-import {Directive, ElementRef, HostBinding, HostListener} from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  HostBinding,
+  HostListener,
+} from '@angular/core';
 
 @Directive({
-  selector: '[appFadeBackground]'
+  selector: '[appFadeBackground]',
 })
 export class FadeBackgroundDirective {
   @HostBinding('style.opacity') opacity: string;
@@ -10,7 +15,7 @@ export class FadeBackgroundDirective {
   onWindowScroll() {
     const elementPosition = this.el.nativeElement.getBoundingClientRect().top;
     const screenHeight = window.innerHeight;
-    this.opacity = (1 - (elementPosition / screenHeight)).toString();
+    this.opacity = (1 - elementPosition / screenHeight).toString();
   }
 
   constructor(private el: ElementRef) {

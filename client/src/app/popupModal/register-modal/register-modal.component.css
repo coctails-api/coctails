@@ -1,15 +1,14 @@
-p{
+p {
   text-align: center;
   padding: 5%;
   font-size: 30px;
 }
 
-
-.isValid{
+.isValid {
   color: red;
 }
 
-a:hover{
+a:hover {
   cursor: pointer;
 }
 

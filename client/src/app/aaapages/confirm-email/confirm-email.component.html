@@ -1,18 +1,14 @@
 <div class="email">
-  <div>
-    Coctails-api
-  </div>
+  <div>Coctails-api</div>
   <div *ngIf="info.toString() != null">
-    <a>{{info}}</a>
+    <a>{{ info }}</a>
   </div>
-  <div *ngIf="err == 401">
-    Email został już potwierdzony
-  </div>
-  <div *ngIf="err == 404">
-    Nie znaleziono takiego tokenu
-  </div>
+  <div *ngIf="err == 401">Email został już potwierdzony</div>
+  <div *ngIf="err == 404">Nie znaleziono takiego tokenu</div>
   <div *ngIf="err == 410">
-    <a (click)="generateNewToken()" style="color: cadetblue">Kliknij, by wygenerować nowy link aktywacyjny</a>
+    <a (click)="generateNewToken()" style="color: cadetblue"
+      >Kliknij, by wygenerować nowy link aktywacyjny</a
+    >
   </div>
   <div>
     <a href="" style="color: cadetblue">przejdź na stronę główną</a>

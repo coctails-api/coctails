@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
-import {HttpHeaders} from "@angular/common/http";
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class HttpHeaderService {
+  constructor() {}
 
-  constructor() { }
-
-  getHeader(): HttpHeaders{
+  getHeader(): HttpHeaders {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     return headers;
   }

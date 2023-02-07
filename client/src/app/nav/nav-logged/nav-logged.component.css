@@ -19,7 +19,6 @@
 
 ul {
   list-style: none;
-
 }
 
 .nav-links {
@@ -28,7 +27,7 @@ ul {
 }
 
 .nav-links li {
-   margin: 0 15px;
+  margin: 0 15px;
 }
 
 .ctn-log {
@@ -51,7 +50,9 @@ ul {
   display: none;
 }
 
-.bar1, .bar2, .bar3 {
+.bar1,
+.bar2,
+.bar3 {
   width: 35px;
   height: 5px;
   background-color: #333;
@@ -71,7 +72,7 @@ h1 {
 }
 
 @media only screen and (max-width: 850px) {
-  .my-btn{
+  .my-btn {
     display: block;
   }
 
@@ -85,7 +86,7 @@ h1 {
     left: 30px;
   }
 
-  .nav-links{
+  .nav-links {
     margin-top: -900px;
     flex-direction: column;
     width: 100%;
@@ -97,8 +98,8 @@ h1 {
     transition: all 0.5s ease;
   }
 
-  .nav-links li{
-     margin: 15px auto;
+  .nav-links li {
+    margin: 15px auto;
   }
 
   .mobile-menu {
@@ -106,7 +107,7 @@ h1 {
   }
 }
 
-.ctn{
+.ctn {
   padding: 8px 15px;
   background: gold;
   border-radius: 30px;
@@ -120,7 +121,6 @@ h1 {
 a {
   text-decoration: none;
 }
-
 
 /*.box{*/
 /*  margin-left: 10%;*/

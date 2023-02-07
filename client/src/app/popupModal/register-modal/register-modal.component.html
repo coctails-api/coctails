@@ -1,43 +1,84 @@
 <div class="modal-dialog" role="document" style="margin: 0">
-    <p>
-      Rejestracja
-    </p>
-    <div class="modal-content" *ngIf="registered==true">
-      <div class="modal-footer">
-        Zarejestrowano pomyślnie. <a (click)="openLoginModal()"> &nbsp;Zaloguj się</a>
-      </div>
+  <p>Rejestracja</p>
+  <div class="modal-content" *ngIf="registered == true">
+    <div class="modal-footer">
+      Zarejestrowano pomyślnie.
+      <a (click)="openLoginModal()"> &nbsp;Zaloguj się</a>
     </div>
-    <div class="modal-content" *ngIf="registered==false">
-      <div class="modal-body">
-        <form [formGroup]="formGroup" (ngSubmit)="registerUser()">
-          <div class="form-group">
-            <label for="email">E-mail</label>
-            <input formControlName="email" type="email" name="email" class="form-control" id="email" placeholder="Email" required>
-            <div class="isValid" *ngIf="formGroup.controls['email'].invalid && submitted != false">
-              To raczej nie jest e-mailem
-            </div>
-            <div class="isValid">
-              {{conflict}}
-            </div>
+  </div>
+  <div class="modal-content" *ngIf="registered == false">
+    <div class="modal-body">
+      <form [formGroup]="formGroup" (ngSubmit)="registerUser()">
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input
+            formControlName="email"
+            type="email"
+            name="email"
+            class="form-control"
+            id="email"
+            placeholder="Email"
+            required
+          />
+          <div
+            class="isValid"
+            *ngIf="formGroup.controls['email'].invalid && submitted != false"
+          >
+            To raczej nie jest e-mailem
           </div>
-          <div class="form-group">
-            <label for="password">Hasło</label>
-            <input formControlName="password" type="password" name="password" class="form-control" id="password" placeholder="Password" required>
-            <div class="isValid" *ngIf="formGroup.controls['password'].invalid && submitted != false">
-              Hasło musi posiadać małą i duża literę oraz przynajmniej jedną cyfrę
-            </div>
+          <div class="isValid">
+            {{ conflict }}
           </div>
-          <div class="form-group">
-            <input type="checkbox" formControlName="terms" required> Akceptuję regulamin
-            <div *ngIf="formGroup.controls['terms'].invalid && submitted != false" style="color: red">
-              Musisz zaakceptować regulamin, aby zarejestrować się.
-            </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Hasło</label>
+          <input
+            formControlName="password"
+            type="password"
+            name="password"
+            class="form-control"
+            id="password"
+            placeholder="Password"
+            required
+          />
+          <div
+            class="isValid"
+            *ngIf="formGroup.controls['password'].invalid && submitted != false"
+          >
+            Hasło musi posiadać małą i duża literę oraz przynajmniej jedną cyfrę
           </div>
-          <div class="modal-footer">
-            <button (click)="closeModal()" type="button" id="add-employee-form" class="btn btn-secondary" style="border-color: white;" data-dismiss="modal">Anuluj</button>
-            <button [disabled]="registered" type="submit" class="btn btn-primary" style="background-color: gold; border-color: white; color: #041836;">Zarejestuj się</button>
+        </div>
+        <div class="form-group">
+          <input type="checkbox" formControlName="terms" required /> Akceptuję
+          regulamin
+          <div
+            *ngIf="formGroup.controls['terms'].invalid && submitted != false"
+            style="color: red"
+          >
+            Musisz zaakceptować regulamin, aby zarejestrować się.
           </div>
-        </form>
-      </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            (click)="closeModal()"
+            type="button"
+            id="add-employee-form"
+            class="btn btn-secondary"
+            style="border-color: white"
+            data-dismiss="modal"
+          >
+            Anuluj
+          </button>
+          <button
+            [disabled]="registered"
+            type="submit"
+            class="btn btn-primary"
+            style="background-color: gold; border-color: white; color: #041836"
+          >
+            Zarejestuj się
+          </button>
+        </div>
+      </form>
     </div>
+  </div>
 </div>

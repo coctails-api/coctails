@@ -5,7 +5,7 @@
 }
 
 .scrolled {
-  background-color: #041836;;
+  background-color: #041836;
   transition: background-color 0.5s ease;
 }
 
@@ -26,7 +26,7 @@ ul {
   list-style: none;
 }
 
-.ctn{
+.ctn {
   padding: 8px 15px;
   background: gold;
   border-radius: 30px;
@@ -52,7 +52,9 @@ ul {
   display: none;
 }
 
-.bar1, .bar2, .bar3 {
+.bar1,
+.bar2,
+.bar3 {
   width: 35px;
   height: 5px;
   background-color: #333;
@@ -66,9 +68,8 @@ ul {
   cursor: pointer;
 }
 
-
 @media only screen and (max-width: 850px) {
-  .my-btn{
+  .my-btn {
     display: block;
   }
 
@@ -84,7 +85,7 @@ ul {
     left: 30px;
   }
 
-  .nav-links{
+  .nav-links {
     margin-top: -900px;
     flex-direction: column;
     width: 100%;
@@ -96,7 +97,7 @@ ul {
     transition: all 0.5s ease;
   }
 
-  .nav-links li{
+  .nav-links li {
     margin: 15px auto;
   }
 

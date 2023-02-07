@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {JwtHelperService} from "@auth0/angular-jwt";
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   userRoles: string[] = [];
@@ -16,10 +16,10 @@ export class AuthService {
   }
 
   isAdmin(): boolean {
-    return this.userRoles.some(r => r === "ADMIN");
+    return this.userRoles.some((r) => r === 'ADMIN');
   }
 
-  isUser(): boolean{
-    return this.userRoles.some(r => r === "USER");
+  isUser(): boolean {
+    return this.userRoles.some((r) => r === 'USER');
   }
 }

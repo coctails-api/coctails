@@ -1,12 +1,34 @@
 <div class="disc-container">
   <div class="form-group">
     <form [formGroup]="formGroup" (ngSubmit)="addDiscount()">
-      <input formControlName="name" type="text" name="name" class="form-control col-5" id="name" placeholder="name" required>
-      <input formControlName="discount" type="text" name="discount" class="form-control col-5" id="discount" placeholder="discount" required>
-      <div style="color: green;" *ngIf="info.length>1">
-        {{info}}
+      <input
+        formControlName="name"
+        type="text"
+        name="name"
+        class="form-control col-5"
+        id="name"
+        placeholder="name"
+        required
+      />
+      <input
+        formControlName="discount"
+        type="text"
+        name="discount"
+        class="form-control col-5"
+        id="discount"
+        placeholder="discount"
+        required
+      />
+      <div style="color: green" *ngIf="info.length > 1">
+        {{ info }}
       </div>
-      <button type="submit" class="btn btn-primary" style="background-color: gold; border-color: white; color: #041836;">Dodaj kod rabatowy</button>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        style="background-color: gold; border-color: white; color: #041836"
+      >
+        Dodaj kod rabatowy
+      </button>
     </form>
   </div>
   <div>
@@ -18,8 +40,17 @@
       </tr>
       <tr *ngFor="let discount of discountList">
         <td>{{ discount.name }}</td>
-        <td>{{ discount.discount}}</td>
-        <td><p><a (click)="deleteDiscount(discount.id)" class="btn btn-danger" data-dismiss="modal">Usuń kod</a></p></td>
+        <td>{{ discount.discount }}</td>
+        <td>
+          <p>
+            <a
+              (click)="deleteDiscount(discount.id)"
+              class="btn btn-danger"
+              data-dismiss="modal"
+              >Usuń kod</a
+            >
+          </p>
+        </td>
       </tr>
     </table>
   </div>
