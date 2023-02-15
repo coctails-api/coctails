@@ -1,5 +1,9 @@
 {
   "dependencies": {
+    "@angular/forms": "^15.1.4",
+    "@angular/material": "^15.1.4",
+    "@angular/platform-browser": "^15.1.4",
+    "@auth0/angular-jwt": "^5.1.2",
     "bootstrap": "^5.2.3",
     "jquery": "^3.6.3",
     "popper.js": "^1.16.1"
