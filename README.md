@@ -34,6 +34,8 @@ Angular (localhost:4200):
 ```
 cd /client/src/app
 ng serve
+
+in case of error "ng is not recognized" please use: npm install -g @angular/cli
 ```
 
 Maildev (0.0.0.0:1080):
